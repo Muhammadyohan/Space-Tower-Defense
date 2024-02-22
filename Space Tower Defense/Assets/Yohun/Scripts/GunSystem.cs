@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GunSystem : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class GunSystem : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
+    // Graphics
+    [Header("Graphics")]
+    public GameObject muzzleFlash, bulletHoleGraphic;
+    public CameraShake cameraShake;
+    public float cameraShakeMagnitude, cameraShakeDuration;
+    public TextMeshProUGUI text;
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
@@ -31,6 +39,9 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
+
+        // Set text
+        text.SetText(bulletsLeft + " / " + magazineSize);
     }
 
     private void MyInput()
@@ -64,6 +75,13 @@ public class GunSystem : MonoBehaviour
         //     if (rayHit.collider.CompareTag("Enemy"))
         //         rayHit.collider.GetComponent<ShootingAI>().TakeDamage(damage);
         // }
+
+        // ShakeCamera
+        cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude);
+
+        // Graphics
+        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
