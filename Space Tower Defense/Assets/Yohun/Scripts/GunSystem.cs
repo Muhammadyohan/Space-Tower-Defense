@@ -25,7 +25,8 @@ public class GunSystem : MonoBehaviour
 
     // Graphics
     [Header("Graphics")]
-    public GameObject muzzleFlash, bulletHoleGraphic;
+    public GameObject muzzleFlash;
+    public GameObject bulletHoleGraphic;
     public CameraShake cameraShake;
     public float cameraShakeMagnitude, cameraShakeDuration;
     public TextMeshProUGUI text;
@@ -34,6 +35,7 @@ public class GunSystem : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        reloading = false;
     }
 
     private void Update()
@@ -52,7 +54,7 @@ public class GunSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
         // Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft < 0){
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0){
             bulletsShot = bulletsPerTap;
             Shoot();
         }
@@ -70,14 +72,14 @@ public class GunSystem : MonoBehaviour
         Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
 
         // RayCast
-        // if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
-        // {
-        //     if (rayHit.collider.CompareTag("Enemy"))
-        //         rayHit.collider.GetComponent<ShootingAI>().TakeDamage(damage);
-        // }
+        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        {
+            // if (rayHit.collider.CompareTag("Enemy"))
+            //     rayHit.collider.GetComponent<ShootingAI>().TakeDamage(damage);
+        }
 
         // ShakeCamera
-        cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude);
+        StartCoroutine(cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude));
 
         // Graphics
         Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
@@ -94,7 +96,7 @@ public class GunSystem : MonoBehaviour
 
     private void ResetShot()
     {
-
+        readyToShoot = true;
     }
 
     private void Reload()
