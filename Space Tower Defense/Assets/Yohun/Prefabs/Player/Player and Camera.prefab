@@ -96,8 +96,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 834511547290005197, guid: f92948ccafc84a6469647bbb1e279c99, type: 3}
   bulletHoleGraphic: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
   cameraShake: {fileID: 6590021449164425688}
-  cameraShakeMagnitude: 0.1
-  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.05
+  cameraShakeDuration: 0.05
   text: {fileID: 0}
 --- !u!1 &6048871628423115807
 GameObject:
