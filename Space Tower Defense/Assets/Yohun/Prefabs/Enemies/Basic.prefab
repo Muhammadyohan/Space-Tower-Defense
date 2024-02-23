@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9080345587079948118}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 276040843336039809}
   m_Layer: 0
   m_Name: Basic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,5 +153,6 @@ MonoBehaviour:
   NodeIndex: 0
   MaxHealth: 5
   Health: 0
+  DamageResistance: 1
   Speed: 4
   ID: 0

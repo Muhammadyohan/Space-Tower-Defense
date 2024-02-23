@@ -7,7 +7,7 @@ public class GunSystem : MonoBehaviour
 {
     // Gun stats
     [Header("Gun Stats")]
-    public int damage;
+    public float damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
@@ -26,7 +26,7 @@ public class GunSystem : MonoBehaviour
     // Graphics
     [Header("Graphics")]
     public GameObject muzzleFlash;
-    public GameObject bulletHoleGraphic;
+    public GameObject bulletImpactGraphic;
     public CameraShake cameraShake;
     public float cameraShakeMagnitude, cameraShakeDuration;
     public TextMeshProUGUI text;
@@ -74,15 +74,15 @@ public class GunSystem : MonoBehaviour
         // RayCast
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
-            // if (rayHit.collider.CompareTag("Enemy"))
-            //     rayHit.collider.GetComponent<ShootingAI>().TakeDamage(damage);
+            if (rayHit.collider.CompareTag("Enemy"))
+                rayHit.collider.GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
         }
 
         // ShakeCamera
         StartCoroutine(cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude));
 
         // Graphics
-        Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+        Instantiate(bulletImpactGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.FromToRotation(Vector3.forward , rayHit.normal));
         Instantiate(muzzleFlash, attackPoint);
 
         bulletsLeft--;
