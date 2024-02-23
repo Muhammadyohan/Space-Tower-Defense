@@ -28,10 +28,14 @@ public class GameLoopManager : MonoBehaviour
         }
 
         StartCoroutine(GameLoop());
-        InvokeRepeating("SummonTest", 0f, 1f);
+        InvokeRepeating("SummonTest", 2f, 1f);
     }
 
     void SummonTest()
+    {
+        
+    }
+    void EnqueueToSummon()
     {
         EnqueueEnemyIDToSummon(1);
     }

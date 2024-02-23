@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 2354544}
   - component: {fileID: 9574882}
   - component: {fileID: 6455900}
+  - component: {fileID: 5935643234040803820}
   m_Layer: 0
   m_Name: door_1
   m_TagString: Untagged
@@ -236,6 +237,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 4bffff855c108e34c83d8605893f4c51, type: 3}
+--- !u!114 &5935643234040803820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edf3f39ea21f8b4f832036a95e5680c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsPlayerOrEnemy:
+    serializedVersion: 2
+    m_Bits: 384
+  doorAnim: {fileID: 9574882}
+  checkRadius: {x: 5, y: 5, z: 5}
 --- !u!1 &174170
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3235798754650179693
 Transform:
   m_ObjectHideFlags: 0
@@ -459,4 +477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edf3f39ea21f8b4f832036a95e5680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsPlayerOrEnemy:
+    serializedVersion: 2
+    m_Bits: 0
   doorAnim: {fileID: 9574882}
+  checkRadius: {x: 0, y: 0, z: 0}
