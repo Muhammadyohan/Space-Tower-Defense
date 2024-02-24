@@ -142,6 +142,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5566821617093064382, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566821617093064382, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816242351565535116, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816242351565535116, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6171035890009542830, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56715584
@@ -185,6 +201,22 @@ PrefabInstance:
     - target: {fileID: 6463575595549814657, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704670802803450409, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704670802803450409, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079585896762036338, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079585896762036338, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -327,6 +359,14 @@ PrefabInstance:
     - target: {fileID: 4753798162921926363, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       propertyPath: near clip plane
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772714116582786009, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+      propertyPath: sensX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772714116582786009, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+      propertyPath: sensY
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4772714116582786009, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       propertyPath: orientation

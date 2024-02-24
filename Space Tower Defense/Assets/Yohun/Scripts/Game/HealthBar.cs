@@ -22,7 +22,10 @@ public class HealthBar : MonoBehaviour
 
         if (preesSpaceBarToTest)
         {
-            
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TakeDamage(10);
+            }
         }
 
         if (healthSlider.value != easeHealthSlider.value)
