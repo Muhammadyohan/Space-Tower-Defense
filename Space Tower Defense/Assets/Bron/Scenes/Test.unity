@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17323539, g: 0.16459554, b: 0.2966911, a: 1}
+  m_IndirectSpecularColor: {r: 0.17316318, g: 0.16457182, b: 0.29665613, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3867,17 +3867,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
   m_PrefabInstance: {fileID: 1479541191}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &426810892 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5744874017799735859, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
-  m_PrefabInstance: {fileID: 644765767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &430161392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
@@ -6148,6 +6137,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 80.8999
       objectReference: {fileID: 0}
+    - target: {fileID: 1653763179221568695, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_text
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653763179221568695, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a582ae9f8852684da6a7449d36d44ac, type: 2}
+    - target: {fileID: 1653763179221568695, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7233097332303680292, guid: 8a582ae9f8852684da6a7449d36d44ac, type: 2}
+    - target: {fileID: 1653763179221568695, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1847960530765295016, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6226,6 +6231,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1847960530765295016, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_text
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_margin.z
+      value: -11.320015
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a582ae9f8852684da6a7449d36d44ac, type: 2}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7233097332303680292, guid: 8a582ae9f8852684da6a7449d36d44ac, type: 2}
+    - target: {fileID: 5541393549144464941, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999381164434197932, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
@@ -10162,7 +10195,7 @@ PrefabInstance:
     - target: {fileID: 6980046872080550596, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 426810892}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
