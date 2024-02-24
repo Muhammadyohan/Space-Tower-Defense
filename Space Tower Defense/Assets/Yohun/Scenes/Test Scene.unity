@@ -1575,10 +1575,6 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1532466082}
-    - target: {fileID: 6980046872080550596, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
-      propertyPath: bulletImpactGraphic
-      value: 
-      objectReference: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

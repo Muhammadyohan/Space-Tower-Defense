@@ -11,9 +11,14 @@ public class Enemy : MonoBehaviour
     public float Speed;
     public int ID;
 
+    [SerializeField] private HealthBar healthBar;
+    private float totalDamage;
+
     public void Init()
     {
         Health = MaxHealth;
+        healthBar.maxHealth = MaxHealth;
+        healthBar.health = MaxHealth;
         transform.position = GameLoopManager.NodePositions[0];
         NodeIndex = 0;
     }
@@ -21,6 +26,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamageFromPlayer(float damage)
     {
         Health -= damage / DamageResistance;
+        totalDamage = damage / DamageResistance;
+        healthBar.TakeDamage(totalDamage);
         if (Health <= 0f)
         {
             GameLoopManager.EnqueueEnemyToRemove(this);
