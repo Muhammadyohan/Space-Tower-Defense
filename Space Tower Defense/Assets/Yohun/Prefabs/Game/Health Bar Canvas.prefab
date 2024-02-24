@@ -54,6 +54,7 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 391496968045440059}
   maxHealth: 100
   health: 0
+  preesSpaceBarToTest: 0
 --- !u!1 &3029303831749180557
 GameObject:
   m_ObjectHideFlags: 0
