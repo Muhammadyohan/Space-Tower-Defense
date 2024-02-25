@@ -87,6 +87,7 @@ public class GunSystem : MonoBehaviour
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 rayHit.collider.GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
+                // Graphic
                 Instantiate(bloodImpactGarphic, rayHit.point, Quaternion.FromToRotation(Vector3.forward , rayHit.normal));
             }
             else

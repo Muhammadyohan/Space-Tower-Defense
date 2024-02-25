@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5533235807250840070}
   - component: {fileID: 6980046872080550596}
+  - component: {fileID: 5792773910036931535}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4268371705394058790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c715375901ef894c9b404b5226087ae, type: 3}
   m_Name: 
@@ -101,6 +102,43 @@ MonoBehaviour:
   cameraShakeDuration: 0.05
   text: {fileID: 0}
   animator: {fileID: 8355099503278794394}
+--- !u!114 &5792773910036931535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268371705394058790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaf804e03027cb409c8cbc6b31e4824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6901376554040741387, guid: 64932ba2362034a43bbf344b8518e0f5, type: 3}
+  shootForce: 1000
+  upwardForce: 0
+  damage: 20
+  timeBetweenShooting: 0.05
+  spread: 0.02
+  range: 100
+  reloadTime: 1
+  timeBetweenShots: 0
+  magazineSize: 30
+  bulletsPerTap: 1
+  allowButtonHold: 1
+  playerRb: {fileID: 1050627723357366452}
+  recoilForce: 0
+  fpsCam: {fileID: 8691684701467423384}
+  attackPoint: {fileID: 6949505407799257558}
+  muzzleFlash: {fileID: 834511547290005197, guid: f92948ccafc84a6469647bbb1e279c99, type: 3}
+  bulletImpactGraphic: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
+  bloodImpactGarphic: {fileID: 1000012909287652, guid: 9e0007124465fb146971d127b501a0d4, type: 3}
+  cameraShake: {fileID: 6590021449164425688}
+  cameraShakeMagnitude: 0.05
+  cameraShakeDuration: 0.05
+  ammunitionDisplay: {fileID: 0}
+  animator: {fileID: 8355099503278794394}
+  allowInvoke: 1
 --- !u!1 &6048871628423115807
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +266,11 @@ PrefabInstance:
 --- !u!4 &860785315303317761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 739355499315125047, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+  m_PrefabInstance: {fileID: 121782216222980662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1050627723357366452 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1091063112901759618, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
   m_PrefabInstance: {fileID: 121782216222980662}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4709907968319370279 stripped
