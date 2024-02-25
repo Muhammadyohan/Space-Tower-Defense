@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 1213762562}
   - component: {fileID: 1213762563}
   - component: {fileID: 1213762564}
+  - component: {fileID: 1213762565}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -964,6 +965,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4746ae0273d7f4a8f1dd82f294ded9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1213762565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213762561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ad8e2809707eb41a66ec452c948315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: wave 1
+    enemyID: 1
+    count: 5
+    spawnDelay: 1
+  - name: wave 2
+    enemyID: 1
+    count: 8
+    spawnDelay: 1
+  - name: wave 3
+    enemyID: 1
+    count: 10
+    spawnDelay: 0.5
+  timeBetweenWaves: 5
+  waveCountdown: 0
 --- !u!1 &1234700705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5999381164434197932, guid: 9f5a9a4982959ce469e3d94b5f0bb7d8, type: 3}
       propertyPath: m_Name
-      value: Magazine Text UI
+      value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

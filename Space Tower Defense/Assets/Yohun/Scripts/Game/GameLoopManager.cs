@@ -31,12 +31,6 @@ public class GameLoopManager : MonoBehaviour
         }
 
         StartCoroutine(GameLoop());
-        InvokeRepeating("SummonTest", 0f, 1f);
-    }
-
-    void SummonTest()
-    {
-        EnqueueEnemyIDToSummon(1);
     }
 
     IEnumerator GameLoop()

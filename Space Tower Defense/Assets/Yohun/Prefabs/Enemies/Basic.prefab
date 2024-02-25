@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Bar Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7006869207189077856, guid: 4010c34f399c07f4c9f94260e80ef065, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7373275420270726960, guid: 4010c34f399c07f4c9f94260e80ef065, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -92,13 +92,15 @@ MonoBehaviour:
   attackPoint: {fileID: 6949505407799257558}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 337
   muzzleFlash: {fileID: 834511547290005197, guid: f92948ccafc84a6469647bbb1e279c99, type: 3}
   bulletImpactGraphic: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
+  bloodImpactGarphic: {fileID: 1000012909287652, guid: 9e0007124465fb146971d127b501a0d4, type: 3}
   cameraShake: {fileID: 6590021449164425688}
   cameraShakeMagnitude: 0.05
   cameraShakeDuration: 0.05
   text: {fileID: 0}
+  animator: {fileID: 8355099503278794394}
 --- !u!1 &6048871628423115807
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,8 +384,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1699895863880134857, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5533235807250840070}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3659840130897769192, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8355099503278794394}
   m_SourcePrefab: {fileID: 100100000, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+--- !u!1 &841520175845306027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3659840130897769192, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+  m_PrefabInstance: {fileID: 4136542038855523395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8355099503278794394
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841520175845306027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc3517677ae633b44b8c8b68a2d1316f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2772433473820038319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2242329304933730540, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
@@ -399,7 +430,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7067140154046191003, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
   m_PrefabInstance: {fileID: 4136542038855523395}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 841520175845306027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4834b2c4a1cc3dd40983e63780042341, type: 3}

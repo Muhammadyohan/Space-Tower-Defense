@@ -27,9 +27,14 @@ public class GunSystem : MonoBehaviour
     [Header("Graphics")]
     public GameObject muzzleFlash;
     public GameObject bulletImpactGraphic;
+    public GameObject bloodImpactGarphic;
     public CameraShake cameraShake;
     public float cameraShakeMagnitude, cameraShakeDuration;
     public TextMeshProUGUI text;
+
+    // Animation
+    [Header("Animation")]
+    public Animator animator;
 
     private void Awake()
     {
@@ -58,6 +63,11 @@ public class GunSystem : MonoBehaviour
             bulletsShot = bulletsPerTap;
             Shoot();
         }
+        else if (readyToShoot && shooting && !reloading && bulletsLeft == 0)
+        {
+            // Auto reload when out of ammo
+            Reload();
+        }
     }
 
     private void Shoot()
@@ -75,14 +85,21 @@ public class GunSystem : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             if (rayHit.collider.CompareTag("Enemy"))
+            {
                 rayHit.collider.GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
+                Instantiate(bloodImpactGarphic, rayHit.point + (rayHit.normal * .01f), Quaternion.FromToRotation(Vector3.forward , rayHit.normal));
+            }
+            else
+            {
+                // Graphic
+                Instantiate(bulletImpactGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.FromToRotation(Vector3.forward , rayHit.normal));
+            }
         }
 
         // ShakeCamera
         StartCoroutine(cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude));
 
-        // Graphics
-        Instantiate(bulletImpactGraphic, rayHit.point + (rayHit.normal * .01f), Quaternion.FromToRotation(Vector3.forward , rayHit.normal));
+        // Graphic
         Instantiate(muzzleFlash, attackPoint);
 
         bulletsLeft--;
@@ -102,12 +119,18 @@ public class GunSystem : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+
+        animator.SetBool("Reloading", true);
+
         Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
+
+        animator.SetBool("Reloading", false);
+
         reloading = false;
     }
 }
