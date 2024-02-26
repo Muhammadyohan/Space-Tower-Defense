@@ -36,8 +36,6 @@ public class Projectile : MonoBehaviour
     // Graphics
     [Header("Graphics")]
     public GameObject muzzleFlash;
-    public GameObject bulletImpactGraphic;
-    public GameObject bloodImpactGarphic;
     public CameraShake cameraShake;
     public float cameraShakeMagnitude, cameraShakeDuration;
     public TextMeshProUGUI ammunitionDisplay;
@@ -104,14 +102,6 @@ public class Projectile : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point;
-            // Graphic
-            if (hit.collider.CompareTag("Enemy"))
-                Instantiate(bloodImpactGarphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
-            else
-            {
-                // Graphic
-                Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
-            }
         }
         else
             targetPoint = ray.GetPoint(75); // Just a point far away from the player
@@ -127,7 +117,7 @@ public class Projectile : MonoBehaviour
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x,y,0);
 
         // Instantiate bullet/projectile
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.LookRotation(attackPoint.forward));
         // Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
 

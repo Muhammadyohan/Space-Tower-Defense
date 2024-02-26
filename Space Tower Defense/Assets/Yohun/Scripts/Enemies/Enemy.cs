@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float DamageResistance = 1f;
     public float Speed;
     public int ID;
+    public Animator animator;
+    public bool hasAnimation = false;
 
     [SerializeField] private HealthBar healthBar;
     private float totalDamage;
@@ -30,8 +32,15 @@ public class Enemy : MonoBehaviour
         healthBar.TakeDamage(totalDamage);
         if (Health <= 0f)
         {
-            GameLoopManager.EnqueueEnemyToRemove(this);
+            if (hasAnimation)
+                animator.SetBool("Dead", true);
+            else
+                GameLoopManager.EnqueueEnemyToRemove(this);
         } 
     }
 
+    public void EnemyDeath()
+    {
+        
+    }
 }

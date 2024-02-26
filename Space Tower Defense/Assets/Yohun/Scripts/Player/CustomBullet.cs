@@ -15,6 +15,7 @@ public class CustomBullet : MonoBehaviour
     [Range(0f, 1f)]
     public float bounciness;
     public bool useGravity;
+    public bool isSticky;
 
     // Damage
     [Header("Damage")]
@@ -27,6 +28,12 @@ public class CustomBullet : MonoBehaviour
     public float maxLifetime;
     public bool explodeOnTouch = true;
 
+    // Graphics
+    [Header("Graphics")]
+    public GameObject bulletImpactGraphic;
+    public GameObject bloodImpactGarphic;
+    RaycastHit hit;
+    int hitCount;
     int collisions;
     PhysicMaterial physics_mat;
 
@@ -45,6 +52,25 @@ public class CustomBullet : MonoBehaviour
         if (maxLifetime <= 0) Explode();
     }
 
+    void FixedUpdate()
+    {
+        // Bullet Impact
+        if (explosion == null)
+        {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 0.1f))
+            {
+                if (hitCount <= 0)
+                {
+                    hitCount++;
+                    if (hit.collider.CompareTag("Enemy"))
+                        Instantiate(bloodImpactGarphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
+                    else
+                        Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
+                }
+            }
+        }
+    }
+
     void Explode()
     {
         // Instantiate explosion
@@ -55,7 +81,14 @@ public class CustomBullet : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             // Get component of enemy and call Take Damage
-            enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(explosionDamage);
+            try
+            {
+                enemies[i].GetComponent<Enemy>().TakeDamageFromPlayer(explosionDamage);
+            }
+            catch
+            {
+                enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(explosionDamage);
+            }
         }
 
         // Add a little delay, just to make sure everything works fine
@@ -69,6 +102,9 @@ public class CustomBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
+        if (isSticky)
+            rb.isKinematic = true;
+
         // Don't count collisions with other bullets
         if (other.collider.CompareTag("Bullet")) return;
 

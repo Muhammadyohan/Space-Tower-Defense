@@ -166,7 +166,11 @@ public struct MoveEnemiesJob : IJobParallelForTransform
         if (NodeIndex[index] < NodePosition.Length)
         {
             Vector3 PositionToMoveTo = NodePosition[NodeIndex[index]];
+            Vector3 targetDirection = PositionToMoveTo - transform.position;
             transform.position = Vector3.MoveTowards(transform.position, PositionToMoveTo, EnemySpeed[index] * deltaTime);
+            Vector3 newDirection = Vector3.RotateTowards(Vector3.forward, targetDirection, 360, 0.0f);
+            Quaternion rotation = Quaternion.LookRotation(newDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.2f);
 
             if (transform.position == PositionToMoveTo)
             {

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6980046872080550596}
   - component: {fileID: 5792773910036931535}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Sub Machine Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,8 +131,6 @@ MonoBehaviour:
   fpsCam: {fileID: 8691684701467423384}
   attackPoint: {fileID: 6949505407799257558}
   muzzleFlash: {fileID: 834511547290005197, guid: f92948ccafc84a6469647bbb1e279c99, type: 3}
-  bulletImpactGraphic: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
-  bloodImpactGarphic: {fileID: 1000012909287652, guid: 9e0007124465fb146971d127b501a0d4, type: 3}
   cameraShake: {fileID: 6590021449164425688}
   cameraShakeMagnitude: 0.05
   cameraShakeDuration: 0.05
@@ -240,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6463575595549814657, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7704670802803450409, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       propertyPath: m_Layer
@@ -399,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4753798162921926363, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       propertyPath: far clip plane
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4753798162921926363, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       propertyPath: near clip plane
