@@ -1468,6 +1468,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
+      propertyPath: waves.Array.data[0].enemyID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
+      propertyPath: waves.Array.data[1].enemyID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
+      propertyPath: waves.Array.data[2].enemyID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3477104974175006591, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
