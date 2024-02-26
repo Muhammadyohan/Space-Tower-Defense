@@ -91,19 +91,19 @@ public class GameLoopManager : MonoBehaviour
             // Apply Effects
 
             // Damage Enemies
-            if (DamageData.Count > 0)
-            {
-                for (int i = 0; i < DamageData.Count; i++)
-                {
-                    EnemyDamageData CurrentDamageData = DamageData.Dequeue();
-                    CurrentDamageData.TargetedEnemy.Health -= CurrentDamageData.TotalDamage / CurrentDamageData.Resistance;
+            // if (DamageData.Count > 0)
+            // {
+            //     for (int i = 0; i < DamageData.Count; i++)
+            //     {
+            //         EnemyDamageData CurrentDamageData = DamageData.Dequeue();
+            //         CurrentDamageData.TargetedEnemy.Health -= CurrentDamageData.TotalDamage / CurrentDamageData.Resistance;
 
-                    if (CurrentDamageData.TargetedEnemy.Health <= 0f)
-                    {
-                        EnqueueEnemyToRemove(CurrentDamageData.TargetedEnemy);
-                    }
-                }
-            }
+            //         if (CurrentDamageData.TargetedEnemy.Health <= 0f)
+            //         {
+            //             EnqueueEnemyToRemove(CurrentDamageData.TargetedEnemy);
+            //         }
+            //     }
+            // }
 
             // Remove Enemies
             if (EnemiesToRemove.Count > 0)

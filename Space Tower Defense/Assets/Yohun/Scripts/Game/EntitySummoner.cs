@@ -7,7 +7,7 @@ public class EntitySummoner : MonoBehaviour
     public static List<Enemy> EnemiesInGame;
     public static List<Transform> EnemiesInGameTransform;
     public static Dictionary<int, GameObject> EnemyPrefabs;
-    public static Dictionary<int, Queue<Enemy>> EnemyObjectPools;
+    // public static Dictionary<int, Queue<Enemy>> EnemyObjectPools;
 
     private static bool IsInitialized;
 
@@ -16,7 +16,7 @@ public class EntitySummoner : MonoBehaviour
         if (!IsInitialized)
         {
             EnemyPrefabs = new Dictionary<int, GameObject>();
-            EnemyObjectPools = new Dictionary<int, Queue<Enemy>>();
+            // EnemyObjectPools = new Dictionary<int, Queue<Enemy>>();
             EnemiesInGameTransform = new List<Transform>();
             EnemiesInGame = new List<Enemy>();
 
@@ -25,7 +25,7 @@ public class EntitySummoner : MonoBehaviour
             foreach (EnemySummonData enemy in Enemies)
             {
                 EnemyPrefabs.Add(enemy.EnemyID, enemy.EnemyPrefab);
-                EnemyObjectPools.Add(enemy.EnemyID, new Queue<Enemy>());
+                // EnemyObjectPools.Add(enemy.EnemyID, new Queue<Enemy>());
             }
 
             IsInitialized = true;
@@ -42,23 +42,28 @@ public class EntitySummoner : MonoBehaviour
 
         if (EnemyPrefabs.ContainsKey(EnemyID))
         {
-            Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];
+            // Queue<Enemy> ReferencedQueue = EnemyObjectPools[EnemyID];
 
-            if (ReferencedQueue.Count > 0)
-            {
-                // Dequeue Enemy and initialize
-                SummonedEnemy = ReferencedQueue.Dequeue();
-                SummonedEnemy.Init();
+            // if (ReferencedQueue.Count > 0)
+            // {
+            //     // Dequeue Enemy and initialize
+            //     SummonedEnemy = ReferencedQueue.Dequeue();
+            //     SummonedEnemy.Init();
 
-                SummonedEnemy.gameObject.SetActive(true);
-            }
-            else
-            {
-                // Instantiate new instance of enemy and initialize
-                GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.NodePositions[0], Quaternion.identity);
-                SummonedEnemy = NewEnemy.GetComponent<Enemy>();
-                SummonedEnemy.Init();
-            }
+            //     SummonedEnemy.gameObject.SetActive(true);
+            // }
+            // else
+            // {
+            //     // Instantiate new instance of enemy and initialize
+            //     GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.NodePositions[0], Quaternion.identity);
+            //     SummonedEnemy = NewEnemy.GetComponent<Enemy>();
+            //     SummonedEnemy.Init();
+            // }
+
+            // Instantiate new instance of enemy and initialize
+            GameObject NewEnemy = Instantiate(EnemyPrefabs[EnemyID], GameLoopManager.NodePositions[0], Quaternion.identity);
+            SummonedEnemy = NewEnemy.GetComponent<Enemy>();
+            SummonedEnemy.Init();
         }
         else
         {
@@ -75,9 +80,10 @@ public class EntitySummoner : MonoBehaviour
 
     public static void RemoveEnemy(Enemy EnemyToRemove)
     {
-        EnemyObjectPools[EnemyToRemove.ID].Enqueue(EnemyToRemove);
+        // EnemyObjectPools[EnemyToRemove.ID].Enqueue(EnemyToRemove);
         EnemyToRemove.gameObject.SetActive(false);
         EnemiesInGameTransform.Remove(EnemyToRemove.transform);
         EnemiesInGame.Remove(EnemyToRemove);
+        Destroy(EnemyToRemove.gameObject, 1);
     }
 }

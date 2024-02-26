@@ -74,15 +74,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: wave 1
-    enemyID: 1
+    enemyID: 2
     count: 5
     spawnDelay: 1
   - name: wave 2
-    enemyID: 1
+    enemyID: 2
     count: 8
     spawnDelay: 1
   - name: wave 3
-    enemyID: 1
+    enemyID: 2
     count: 10
     spawnDelay: 0.5
   timeBetweenWaves: 5
