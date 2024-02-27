@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float Health;
     public float DamageResistance = 1f;
     public float Speed;
+    public float Damage = 10f;
     public int ID;
     public Animator animator;
     public bool hasAnimation = false;

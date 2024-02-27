@@ -17,6 +17,8 @@ public class GameLoopManager : MonoBehaviour
     public Transform NodeParent;
     public bool LoopShouldEnd;
 
+    private ObjectToDefense objectToDefense;
+
     void Start()
     {
         DamageData = new Queue<EnemyDamageData>();
@@ -29,6 +31,8 @@ public class GameLoopManager : MonoBehaviour
         {
             NodePositions[i] = NodeParent.GetChild(i).position;
         }
+
+        objectToDefense = FindObjectOfType<ObjectToDefense>();
 
         StartCoroutine(GameLoop());
     }
@@ -77,6 +81,7 @@ public class GameLoopManager : MonoBehaviour
 
                 if (EntitySummoner.EnemiesInGame[i].NodeIndex == NodePositions.Length)
                 {
+                    objectToDefense.TakeDamage(EntitySummoner.EnemiesInGame[i].Damage);
                     EnqueueEnemyToRemove(EntitySummoner.EnemiesInGame[i]);
                 }
             }
