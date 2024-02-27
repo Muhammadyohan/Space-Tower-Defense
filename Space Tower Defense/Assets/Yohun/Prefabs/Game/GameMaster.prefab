@@ -77,13 +77,18 @@ MonoBehaviour:
     enemyID: 2
     count: 5
     spawnDelay: 1
+    timeDuringWave: 20
   - name: wave 2
     enemyID: 2
     count: 8
     spawnDelay: 1
+    timeDuringWave: 20
   - name: wave 3
     enemyID: 2
     count: 10
     spawnDelay: 0.5
+    timeDuringWave: 20
+  currentWave: 1
   timeBetweenWaves: 5
   waveCountdown: 0
+  timeCountdown: 0
