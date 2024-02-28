@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WATING, COUNTING}
+    public enum SpawnState { SPAWNING, WATING, COUNTING, GAMEEND}
 
     [System.Serializable]
     public class Wave
@@ -18,28 +18,31 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
-    public int currentWave = 1;
+    [HideInInspector] public int currentWave = 1;
     
+    public float intermissionTime = 10f;
     public float timeBetweenWaves = 5f;
-    public float waveCountdown = 0f;
-    public float timeCountdown = 0f;
+    [HideInInspector] public float waveCountdown = 0f;
+    [HideInInspector] public float timeCountdown = 0f;
 
     private float searchCountdown = 1f;
 
     private SpawnState state = SpawnState.COUNTING;
 
     private WaveUIHandle waveUIHandle;
+    private GameOverOrCompleteHandle gm;
 
     void Start()
     {   
-        waveCountdown = timeBetweenWaves;
+        waveCountdown = intermissionTime;
         timeCountdown = waves[currentWave -1].timeDuringWave;
         waveUIHandle = FindObjectOfType<WaveUIHandle>();
+        gm = FindObjectOfType<GameOverOrCompleteHandle>();
     }
 
     void Update()
     {
-        if (state == SpawnState.SPAWNING)
+        if (state == SpawnState.SPAWNING && currentWave != waves.Length)
             timeCountdown -= Time.deltaTime;
 
 
@@ -53,7 +56,8 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
-                timeCountdown -= Time.deltaTime;
+                if (currentWave != waves.Length)
+                    timeCountdown -= Time.deltaTime;
                 return;
             }
         }
@@ -62,6 +66,9 @@ public class WaveSpawner : MonoBehaviour
         {
             if (state != SpawnState.SPAWNING)
             {
+                currentWave = nextWave + 1;
+                timeCountdown = waves[nextWave].timeDuringWave;
+                waveUIHandle.maxTimeBarValue = waves[currentWave - 1].timeDuringWave;
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
@@ -80,15 +87,15 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
-            Debug.Log ("ALL WAVES COMPLETE! Looping..");
+            // nextWave = 0;
+            // Debug.Log ("ALL WAVES COMPLETE! Looping..");
+            state = SpawnState.GAMEEND;
+            gm.GameComplete();
+
         }
         else
         {
             nextWave++;
-            currentWave = nextWave + 1;
-            timeCountdown = waves[nextWave].timeDuringWave;
-            waveUIHandle.maxTimeBarValue = waves[currentWave - 1].timeDuringWave;
         }
     }
 

@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     public GameObject muzzleFlash;
     public CameraShake cameraShake;
     public float cameraShakeMagnitude, cameraShakeDuration;
-    public TextMeshProUGUI ammunitionDisplay;
+    private WeaponGUI weaponGUI;
 
     // Animation
     [Header("Animation")]
@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
         reloading = false;
+        weaponGUI = FindObjectOfType<WeaponGUI>();
     }
 
     private void Update()
@@ -60,10 +61,12 @@ public class Projectile : MonoBehaviour
         MyInput();
 
         // Set text
-        if (ammunitionDisplay != null) 
-        {
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-        }
+        weaponGUI.bulletLeftText.SetText((bulletsLeft / bulletsPerTap).ToString());
+        weaponGUI.magazineSizeText.SetText((magazineSize / bulletsPerTap).ToString());
+        // if (bulletLeftDisplay != null) 
+        // {
+        //     bulletLeftDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+        // }
     }
 
     private void MyInput()

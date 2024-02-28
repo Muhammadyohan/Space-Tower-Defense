@@ -21,6 +21,7 @@ public class GameLoopManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         DamageData = new Queue<EnemyDamageData>();
         EnemyIDsToSummon = new Queue<int>();
         EnemiesToRemove = new Queue<Enemy>();
@@ -138,6 +139,11 @@ public class GameLoopManager : MonoBehaviour
     public static void EnqueueEnemyToRemove(Enemy EnemyToRemove)
     {
         EnemiesToRemove.Enqueue(EnemyToRemove);
+    }
+
+    public void SetLoopShouldEnd(bool set)
+    {
+        LoopShouldEnd = set;
     }
 }
 

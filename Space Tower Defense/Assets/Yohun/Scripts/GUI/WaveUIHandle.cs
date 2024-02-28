@@ -9,6 +9,7 @@ public class WaveUIHandle : MonoBehaviour
     public Image timeBarFill;
     public float maxTimeBarValue;
     public TextMeshProUGUI waveText;
+    public TextMeshProUGUI preWaveText;
     private int wave = 1;
     private WaveSpawner waveSpawner;
 
@@ -26,7 +27,13 @@ public class WaveUIHandle : MonoBehaviour
         if (wave != waveSpawner.currentWave)
         {
             wave = waveSpawner.currentWave;
-            waveText.text = wave.ToString() + "/" + waveSpawner.waves.Length;
+            if (wave == waveSpawner.waves.Length)
+            {
+                preWaveText.text = "FINAL WAVE";
+                waveText.text = "";
+            }
+            else
+                waveText.text = wave.ToString() + "/" + waveSpawner.waves.Length;
         }
         
         perCentValForCalculate = waveSpawner.timeCountdown/maxTimeBarValue;

@@ -1216,7 +1216,7 @@ MonoBehaviour:
   NodeIndex: 0
   MaxHealth: 100
   Health: 0
-  DamageResistance: 20
+  DamageResistance: 7.5
   Speed: 4
   Damage: 10
   ID: 0

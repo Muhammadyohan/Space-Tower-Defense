@@ -15,12 +15,14 @@ public class ObjectToDefense : MonoBehaviour
     public bool preesSpaceBarToTest;
     private float healthBuffer;
     private float lerpSpeed = 0.05f;
+    private GameOverOrCompleteHandle gm;
 
     void Start()
     {
         health = maxHealth;
         healthText.text = health.ToString("F0") + "/" + maxHealth.ToString("F0");
         healthBuffer = health/100;
+        gm = FindObjectOfType<GameOverOrCompleteHandle>();
     }
 
     void Update()
@@ -28,7 +30,6 @@ public class ObjectToDefense : MonoBehaviour
         if (healthBarFill.fillAmount != healthBuffer)
         {
             healthBarFill.fillAmount = healthBuffer;
-            if (health < 0) health = 0;
             healthText.text = health.ToString("F0") + "/" + maxHealth.ToString("F0");
 
         }
@@ -51,5 +52,11 @@ public class ObjectToDefense : MonoBehaviour
     {
         health -= damage;
         healthBuffer = health/100;
+        if (health <= 0) 
+        {
+            health = 0;
+            healthText.text = health.ToString("F0") + "/" + maxHealth.ToString("F0");
+            gm.GameOver();
+        }
     }
 }
