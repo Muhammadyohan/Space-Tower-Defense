@@ -6752,20 +6752,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 27461485126135718, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
-      propertyPath: m_margin.z
-      value: -0.84191084
+      propertyPath: m_text
+      value: WAVE
       objectReference: {fileID: 0}
     - target: {fileID: 181004725865521026, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1270377128}
-    - target: {fileID: 793818714062216644, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 273.186
+    - target: {fileID: 359360239356999376, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 793818714062216644, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 412.19302
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1847960530765295016, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
       propertyPath: m_Pivot.x
