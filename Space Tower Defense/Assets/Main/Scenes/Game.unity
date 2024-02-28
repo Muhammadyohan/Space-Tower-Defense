@@ -10467,6 +10467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player and Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5792773910036931535, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6980046872080550596, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
       propertyPath: text
       value: 
