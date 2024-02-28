@@ -1222,6 +1222,7 @@ MonoBehaviour:
   ID: 0
   animator: {fileID: 0}
   hasAnimation: 0
+  navMeshAgent: {fileID: 0}
   healthBar: {fileID: 5152916223774597607}
 --- !u!4 &5764425768360094694 stripped
 Transform:

@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Jobs;
 
 public class GameLoopManager : MonoBehaviour
@@ -182,7 +183,7 @@ public struct MoveEnemiesJob : IJobParallelForTransform
             Vector3 newDirection = Vector3.RotateTowards(Vector3.forward, targetDirection, 360, 0.0f);
             Quaternion rotation = Quaternion.LookRotation(newDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.2f);
-
+            
             if (transform.position == PositionToMoveTo)
             {
                 NodeIndex[index]++;
