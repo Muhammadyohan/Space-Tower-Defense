@@ -65,7 +65,7 @@ public class CustomBullet : MonoBehaviour
                     if (hit.collider.CompareTag("Enemy"))
                         Instantiate(bloodImpactGarphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
                     else
-                        Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
+                        Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal), hit.transform);
                 }
             }
         }
