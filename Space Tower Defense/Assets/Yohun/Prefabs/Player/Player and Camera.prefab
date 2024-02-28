@@ -122,7 +122,7 @@ MonoBehaviour:
   spread: 0.02
   range: 100
   reloadTime: 1
-  timeBetweenShots: 0
+  timeBetweenShots: 0.1
   magazineSize: 30
   bulletsPerTap: 1
   allowButtonHold: 1
@@ -134,7 +134,6 @@ MonoBehaviour:
   cameraShake: {fileID: 6590021449164425688}
   cameraShakeMagnitude: 0.05
   cameraShakeDuration: 0.05
-  ammunitionDisplay: {fileID: 0}
   animator: {fileID: 8355099503278794394}
   allowInvoke: 1
 --- !u!1 &6048871628423115807
