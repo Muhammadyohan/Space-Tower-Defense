@@ -86,7 +86,7 @@ MonoBehaviour:
     timeDuringWave: 20
   - name: wave 3
     enemyIDToSpawn: 2
-    amount: 8
+    amount: 10
     spawnRate: 0.5
     timeDuringWave: 20
   currentWave: 1
