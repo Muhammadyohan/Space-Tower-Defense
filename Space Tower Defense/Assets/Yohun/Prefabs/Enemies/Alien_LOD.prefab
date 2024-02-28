@@ -1216,13 +1216,12 @@ MonoBehaviour:
   NodeIndex: 0
   MaxHealth: 100
   Health: 0
-  DamageResistance: 10
+  DamageResistance: 7.5
   Speed: 4
   Damage: 10
   ID: 0
   animator: {fileID: 0}
   hasAnimation: 0
-  navMeshAgent: {fileID: 0}
   healthBar: {fileID: 5152916223774597607}
 --- !u!4 &5764425768360094694 stripped
 Transform:

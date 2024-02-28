@@ -16,10 +16,11 @@ public class CustomBullet : MonoBehaviour
     public float bounciness;
     public bool useGravity;
     public bool isSticky;
+    public bool isExplode;
 
     // Damage
     [Header("Damage")]
-    public int explosionDamage;
+    public int damage;
     public float explosionRange;
 
     // Lifetime
@@ -37,6 +38,9 @@ public class CustomBullet : MonoBehaviour
     int collisions;
     PhysicMaterial physics_mat;
 
+    [Header("Debug")]
+    public SphereCollider sphereCollider;
+
     void Start()
     {
         Setup();
@@ -45,11 +49,15 @@ public class CustomBullet : MonoBehaviour
     void Update()
     {
         // When to explode
-        if (collisions > maxCollisions) Explode();
+        if (isExplode)
+            if (collisions > maxCollisions) Explode();
 
         // Count down lifetime
-        maxLifetime -= Time.deltaTime;
-        if (maxLifetime <= 0) Explode();
+        if (isExplode)
+        {
+            maxLifetime -= Time.deltaTime;
+            if (maxLifetime <= 0) Explode();
+        }
     }
 
     void FixedUpdate()
@@ -83,11 +91,11 @@ public class CustomBullet : MonoBehaviour
             // Get component of enemy and call Take Damage
             try
             {
-                enemies[i].GetComponent<Enemy>().TakeDamageFromPlayer(explosionDamage);
+                enemies[i].GetComponent<Enemy>().TakeDamageFromPlayer(damage);
             }
             catch
             {
-                enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(explosionDamage);
+                enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
             }
         }
 
@@ -104,15 +112,33 @@ public class CustomBullet : MonoBehaviour
     {
         if (isSticky)
             rb.isKinematic = true;
-
+        
         // Don't count collisions with other bullets
         if (other.collider.CompareTag("Bullet")) return;
 
         // Count up collisions
         collisions++;
 
-        // Explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if (other.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+        if (isExplode)
+        {
+            // Explode if bullet hits an enemy directly and explodeOnTouch is activated
+            if (other.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+        }
+        else
+        {
+            if (other.collider.CompareTag("Enemy") && explodeOnTouch)
+            {
+                try
+                {
+                    other.transform.GetComponent<Enemy>().TakeDamageFromPlayer(damage);
+                }
+                catch
+                {
+                    other.transform.GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
+                }
+            }
+            Invoke("Delay", 0.02f);
+        }
     }
 
     private void Setup()
