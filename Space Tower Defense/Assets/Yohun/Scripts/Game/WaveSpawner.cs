@@ -10,9 +10,9 @@ public class WaveSpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public int enemyID;
-        public int count;
-        public float spawnDelay;
+        public int enemyIDToSpawn;
+        public int amount;
+        public float spawnRate;
         public float timeDuringWave;
     }
 
@@ -118,10 +118,10 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Spawning Wave");
         state = SpawnState.SPAWNING;
 
-        for (int i = 0; i < _wave.count; i++)
+        for (int i = 0; i < _wave.amount; i++)
         {
-            GameLoopManager.EnqueueEnemyIDToSummon(_wave.enemyID);
-            yield return new WaitForSeconds(_wave.spawnDelay);
+            GameLoopManager.EnqueueEnemyIDToSummon(_wave.enemyIDToSpawn);
+            yield return new WaitForSeconds(_wave.spawnRate);
         }
 
         state = SpawnState.WATING;

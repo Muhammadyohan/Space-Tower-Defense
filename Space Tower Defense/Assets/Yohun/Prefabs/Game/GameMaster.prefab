@@ -75,19 +75,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: wave 1
-    enemyID: 2
-    count: 5
-    spawnDelay: 1
+    enemyIDToSpawn: 2
+    amount: 5
+    spawnRate: 1
     timeDuringWave: 20
   - name: wave 2
-    enemyID: 2
-    count: 8
-    spawnDelay: 1
+    enemyIDToSpawn: 2
+    amount: 8
+    spawnRate: 1
     timeDuringWave: 20
   - name: wave 3
-    enemyID: 2
-    count: 10
-    spawnDelay: 0.5
+    enemyIDToSpawn: 2
+    amount: 8
+    spawnRate: 0.5
     timeDuringWave: 20
   currentWave: 1
   intermissionTime: 10
