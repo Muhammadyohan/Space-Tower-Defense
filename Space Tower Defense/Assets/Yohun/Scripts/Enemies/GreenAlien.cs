@@ -125,7 +125,7 @@ public class GreenAlien : MonoBehaviour
     {
         shouldRotateToPlayer = false;
         enemyAttack.hitting = true;
-        agent.enabled = false;
+        agent.isStopped = true;
     }
 
     private void StopAttacking()
@@ -134,6 +134,6 @@ public class GreenAlien : MonoBehaviour
         isAttacking = false;
         enemyAttack.hitting = false;
         enemyAttack.targetAttacked = false;
-        agent.enabled = true;
+        agent.isStopped = false;
     }
 }
