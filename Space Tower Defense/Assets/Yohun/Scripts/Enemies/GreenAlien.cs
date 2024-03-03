@@ -7,7 +7,7 @@ public class GreenAlien : MonoBehaviour
 {
     private Enemy thisEnemy;
     public NavMeshAgent agent;
-    public Transform player, thisColiiderTransform;
+    public Transform player;
     public LayerMask whatIsGround, whatIsPlayer, whatIsDefendedObject;
 
     [Header("Go to Target Object")]
@@ -123,9 +123,9 @@ public class GreenAlien : MonoBehaviour
 
     private void StartAttacking()
     {
+        agent.isStopped = true;
         shouldRotateToPlayer = false;
         enemyAttack.hitting = true;
-        agent.isStopped = true;
     }
 
     private void StopAttacking()

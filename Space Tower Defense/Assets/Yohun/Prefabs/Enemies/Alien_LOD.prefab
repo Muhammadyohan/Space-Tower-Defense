@@ -2026,7 +2026,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5764425768359802822}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.75
+  m_Radius: 0.7
   m_Speed: 4
   m_Acceleration: 4
   avoidancePriority: 50
@@ -2038,7 +2038,7 @@ NavMeshAgent:
   m_Height: 1.4
   m_BaseOffset: -0.06
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &5211258328062658536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   ID: 0
   MaxHealth: 100
   Health: 0
-  DamageResistance: 2.5
+  DamageResistance: 2
   Damage: 10
   animator: {fileID: 5764425768367080454}
   healthBar: {fileID: 5152916223774597607}
@@ -2072,7 +2072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: -1047017070775129756}
   player: {fileID: 0}
-  thisColiiderTransform: {fileID: 1472673755941703552}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

@@ -10,21 +10,17 @@ public class WaveSpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public Transform enemy;
-        public int amount;
-        public float spawnRate;
+        public Enemy[] enemies; 
         public float timeDuringWave;
-        public Transform[] spawnPoints;
-        public SubWave[] subWaves; 
     }
     [System.Serializable]
-    public class SubWave
+    public class Enemy
     {
         public string name;
         public Transform enemy;
         public int amount;
-        public Transform[] spawnPoint;
         public float spawnRate;
+        public Transform[] spawnPoints;
     }
 
     public Wave[] waves;
@@ -45,7 +41,6 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {   
-        Physics.IgnoreLayerCollision(8, 8, true);
         waveCountdown = intermissionTime;
         timeCountdown = waves[currentWave -1].timeDuringWave;
         waveUIHandle = FindObjectOfType<WaveUIHandle>();
@@ -130,10 +125,19 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Spawning Wave");
         state = SpawnState.SPAWNING;
 
-        for (int i = 0; i < _wave.amount; i++)
+        // for (int i = 0; i < _wave.amount; i++)
+        // {
+        //     SpawnEnemy(_wave.enemy, _wave.spawnPoints[Random.Range(0, _wave.spawnPoints.Length)].position);
+        //     yield return new WaitForSeconds(_wave.spawnRate);
+        // }
+
+        for (int i = 0; i <_wave.enemies.Length; i++)
         {
-            SpawnEnemy(_wave.enemy, _wave.spawnPoints[Random.Range(0, _wave.spawnPoints.Length)].position);
-            yield return new WaitForSeconds(_wave.spawnRate);
+            for (int j = 0; j < _wave.enemies[i].amount; j++)
+            {
+                SpawnEnemy(_wave.enemies[i].enemy, _wave.enemies[i].spawnPoints[Random.Range(0, _wave.enemies[i].spawnPoints.Length)].position);
+                yield return new WaitForSeconds(_wave.enemies[i].spawnRate);
+            }
         }
 
         state = SpawnState.WATING;
