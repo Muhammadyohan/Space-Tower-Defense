@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public int NodeIndex;
+    public int ID;
+
+    [Header("Stats")]
     public float MaxHealth;
     public float Health;
     public float DamageResistance = 1f;
-    public float Speed;
     public float Damage = 10f;
-    public int ID;
+    
+    [Header("Animation")]
     public Animator animator;
     public bool hasAnimation = false;
 
@@ -23,8 +25,6 @@ public class Enemy : MonoBehaviour
         Health = MaxHealth;
         healthBar.maxHealth = MaxHealth;
         healthBar.health = MaxHealth;
-        transform.position = GameLoopManager.NodePositions[0];
-        NodeIndex = 0;
     }
 
     public void TakeDamageFromPlayer(float damage)
@@ -37,12 +37,7 @@ public class Enemy : MonoBehaviour
             if (hasAnimation)
                 animator.SetBool("Dead", true);
             else
-                GameLoopManager.EnqueueEnemyToRemove(this);
+                Destroy(this);
         } 
-    }
-
-    public void EnemyDeath()
-    {
-        
     }
 }
