@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
     [Header("Recoil")]
     public Rigidbody playerRb;
     public float recoilForce;
+    public CameraShake cameraShake;
+    public float cameraShakeMagnitude, cameraShakeDuration;
 
     // bools
     bool shooting, readyToShoot, reloading;
@@ -36,8 +38,6 @@ public class Projectile : MonoBehaviour
     // Graphics
     [Header("Graphics")]
     public GameObject muzzleFlash;
-    public CameraShake cameraShake;
-    public float cameraShakeMagnitude, cameraShakeDuration;
     private WeaponGUI weaponGUI;
 
     // Animation
@@ -63,10 +63,6 @@ public class Projectile : MonoBehaviour
         // Set text
         weaponGUI.bulletLeftText.SetText((bulletsLeft / bulletsPerTap).ToString());
         weaponGUI.magazineSizeText.SetText((magazineSize / bulletsPerTap).ToString());
-        // if (bulletLeftDisplay != null) 
-        // {
-        //     bulletLeftDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-        // }
     }
 
     private void MyInput()
@@ -84,12 +80,15 @@ public class Projectile : MonoBehaviour
             bulletsShot = 0;
 
             Shoot();
+            animator.SetBool("Shooting", true);
         }
         else if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
         {
             // Auto reload when out of ammo
             Reload();
         }
+        else if (!shooting)
+            animator.SetBool("Shooting", false);
     }
 
     private void Shoot()
@@ -158,7 +157,6 @@ public class Projectile : MonoBehaviour
         readyToShoot = true;
         allowInvoke = true;
     }
-
 
     private void Reload()
     {

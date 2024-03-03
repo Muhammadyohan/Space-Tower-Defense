@@ -10,10 +10,21 @@ public class WaveSpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public int enemyIDToSpawn;
+        public Transform enemy;
         public int amount;
         public float spawnRate;
         public float timeDuringWave;
+        public Transform[] spawnPoints;
+        public SubWave[] subWaves; 
+    }
+    [System.Serializable]
+    public class SubWave
+    {
+        public string name;
+        public Transform enemy;
+        public int amount;
+        public Transform[] spawnPoint;
+        public float spawnRate;
     }
 
     public Wave[] waves;
@@ -120,12 +131,17 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < _wave.amount; i++)
         {
-            GameLoopManager.EnqueueEnemyIDToSummon(_wave.enemyIDToSpawn);
+            SpawnEnemy(_wave.enemy, _wave.spawnPoints[Random.Range(0, _wave.spawnPoints.Length)].position);
             yield return new WaitForSeconds(_wave.spawnRate);
         }
 
         state = SpawnState.WATING;
 
         yield break;
+    }
+
+    void SpawnEnemy(Transform _enemy, Vector3 spawnPoint)
+    {
+        Instantiate(_enemy, spawnPoint, Quaternion.identity);
     }
 }

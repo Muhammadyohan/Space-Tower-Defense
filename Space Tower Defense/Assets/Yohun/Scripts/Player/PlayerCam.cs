@@ -9,8 +9,12 @@ public class PlayerCam : MonoBehaviour
 
     public Transform orientation;
 
-    float xRotation;
-    float yRotation;
+    [Header("Debug")]
+    public float xRotation;
+    public float yRotation;
+    
+    public float recoilX;
+    public float recoilY;
 
     private void Start()
     {
