@@ -21,7 +21,7 @@ public class ObjectToDefense : MonoBehaviour
     {
         health = maxHealth;
         healthText.text = health.ToString("F0") + "/" + maxHealth.ToString("F0");
-        healthBuffer = health/100;
+        healthBuffer = health/maxHealth;
         gm = FindObjectOfType<GameOverOrCompleteHandle>();
     }
 
@@ -51,7 +51,7 @@ public class ObjectToDefense : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        healthBuffer = health/100;
+        healthBuffer = health/maxHealth;
         if (health <= 0) 
         {
             health = 0;
