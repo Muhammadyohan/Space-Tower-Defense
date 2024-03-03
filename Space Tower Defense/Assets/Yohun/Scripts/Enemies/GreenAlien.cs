@@ -7,7 +7,7 @@ public class GreenAlien : MonoBehaviour
 {
     private Enemy thisEnemy;
     public NavMeshAgent agent;
-    public Transform player;
+    public Transform player, thisColiiderTransform;
     public LayerMask whatIsGround, whatIsPlayer, whatIsDefendedObject;
 
     [Header("Go to Target Object")]
@@ -16,6 +16,9 @@ public class GreenAlien : MonoBehaviour
     [Header("Attacking")]
     public float timeBetweenAttacks;
     bool alreadyAttacked;
+    bool shouldRotateToPlayer = true;
+    bool isAttacking = false;
+    public EnemyAttack enemyAttack;
 
     [Header("States")]
     public float sightRange, attackRange;
@@ -37,11 +40,13 @@ public class GreenAlien : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         targetInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsDefendedObject);
 
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        else if (playerInAttackRange && playerInSightRange) AttackPlayer();
-        else if (!playerInSightRange && !playerInAttackRange) GoToTargetObject();
-        else if (targetInAttackRange) AttackTargetObject();
-
+        if (!isAttacking)
+        {
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            else if (playerInAttackRange && playerInSightRange) AttackPlayer();
+            else if (targetInAttackRange) AttackTargetObject();
+            else if (!playerInSightRange && !playerInAttackRange) GoToTargetObject();
+        }
     }
 
     private void GoToTargetObject()
@@ -49,30 +54,66 @@ public class GreenAlien : MonoBehaviour
         if (!targetInAttackRange)
         {
             agent.SetDestination(targetPoint.position);
+            if(!thisEnemy.animator.GetBool("Move"))
+            {
+                thisEnemy.animator.SetBool("Move", true);
+            }
         }
     }
 
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        if(!thisEnemy.animator.GetBool("Move"))
+        {
+            thisEnemy.animator.SetBool("Move", true);
+        }
     }
 
     private void AttackPlayer()
     {
         // Make sure enemy doesn't move
         agent.SetDestination(transform.position);
+        if(thisEnemy.animator.GetBool("Move"))
+            thisEnemy.animator.SetBool("Move", false);
 
-        // Rotate enemy to look at the player
-        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        if (shouldRotateToPlayer)
+        {
+            // Rotate enemy to look at the player
+            transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        } 
 
         if (!alreadyAttacked)
         {
             // Attack code here
-
-
+            thisEnemy.animator.SetTrigger("Attack");
+            isAttacking = true;
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
+        } 
+    }
+
+    private void AttackTargetObject()
+    {
+        // Make sure enemy doesn't move
+        agent.SetDestination(transform.position);
+        if(thisEnemy.animator.GetBool("Move"))
+            thisEnemy.animator.SetBool("Move", false);
+
+        if (shouldRotateToPlayer)
+        {
+            // Rotate enemy to look at the player
+            transform.LookAt(new Vector3(targetPoint.position.x, 0, targetPoint.position.z));
+        } 
+
+        if (!alreadyAttacked)
+        {
+            // Attack code here
+            thisEnemy.animator.SetTrigger("Attack");
+            isAttacking = true;
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        } 
     }
 
     private void ResetAttack()
@@ -80,8 +121,19 @@ public class GreenAlien : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    private void AttackTargetObject()
+    private void StartAttacking()
     {
+        shouldRotateToPlayer = false;
+        enemyAttack.hitting = true;
+        agent.enabled = false;
+    }
 
+    private void StopAttacking()
+    {
+        shouldRotateToPlayer = true;
+        isAttacking = false;
+        enemyAttack.hitting = false;
+        enemyAttack.targetAttacked = false;
+        agent.enabled = true;
     }
 }

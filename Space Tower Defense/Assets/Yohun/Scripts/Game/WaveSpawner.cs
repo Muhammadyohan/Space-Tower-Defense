@@ -45,6 +45,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {   
+        Physics.IgnoreLayerCollision(8, 8);
         waveCountdown = intermissionTime;
         timeCountdown = waves[currentWave -1].timeDuringWave;
         waveUIHandle = FindObjectOfType<WaveUIHandle>();

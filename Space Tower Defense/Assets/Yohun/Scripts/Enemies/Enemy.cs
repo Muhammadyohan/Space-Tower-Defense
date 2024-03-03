@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
     
     [Header("Animation")]
     public Animator animator;
-    public bool hasAnimation = false;
 
     [SerializeField] private HealthBar healthBar;
     private float totalDamage;
@@ -34,10 +33,7 @@ public class Enemy : MonoBehaviour
         healthBar.TakeDamage(totalDamage);
         if (Health <= 0f)
         {
-            if (hasAnimation)
-                animator.SetBool("Dead", true);
-            else
-                Destroy(this);
+            Destroy(this.gameObject);
         } 
     }
 }
