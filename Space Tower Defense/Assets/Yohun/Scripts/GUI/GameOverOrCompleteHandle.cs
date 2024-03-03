@@ -8,6 +8,11 @@ public class GameOverOrCompleteHandle : MonoBehaviour
 {
     public UnityEvent GameOverEvent;
     public UnityEvent GameCompleteEvent;
+    
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     public void GameOver()
     {
