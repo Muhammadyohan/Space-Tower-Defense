@@ -129,7 +129,6 @@ public class CustomBullet : MonoBehaviour
             if (other.collider.CompareTag("Enemy") && explodeOnTouch)
             {
                 other.transform.GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
-                Debug.Log("Hitted Enemy");
             }
             Invoke("Delay", 0.02f);
         }
