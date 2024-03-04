@@ -2082,7 +2082,7 @@ MonoBehaviour:
   ID: 0
   MaxHealth: 100
   Health: 0
-  DamageResistance: 5
+  DamageResistance: 2.5
   Damage: 10
   animator: {fileID: 5764425768367080454}
   healthBar: {fileID: 5152916223774597607}
