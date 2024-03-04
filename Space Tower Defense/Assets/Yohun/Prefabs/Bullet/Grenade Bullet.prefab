@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3859494753632952556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 1.758, z: -1.865}
+  m_LocalPosition: {x: 0.879, y: 1.758, z: -1.865}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265,10 +265,15 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
-  bounciness: 0.8
+  bounciness: 0
   useGravity: 1
-  explosionDamage: 40
-  explosionRange: 1.2
-  maxCollisions: 1
+  isSticky: 0
+  isExplode: 1
+  damage: 100
+  explosionRange: 6
+  maxCollisions: 0
   maxLifetime: 4
   explodeOnTouch: 1
+  bulletImpactGraphic: {fileID: 0}
+  bloodImpactGarphic: {fileID: 0}
+  sphereCollider: {fileID: 1010428425874480010}

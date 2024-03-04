@@ -50,11 +50,10 @@ public class CustomBullet : MonoBehaviour
     {
         // When to explode
         if (isExplode)
+        {
             if (collisions > maxCollisions) Explode();
 
-        // Count down lifetime
-        if (isExplode)
-        {
+            // Count down lifetime
             maxLifetime -= Time.deltaTime;
             if (maxLifetime <= 0) Explode();
         }
@@ -89,18 +88,10 @@ public class CustomBullet : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             // Get component of enemy and call Take Damage
-            try
-            {
-                enemies[i].GetComponent<Enemy>().TakeDamageFromPlayer(damage);
-            }
-            catch
-            {
-                enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
-            }
+            enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
         }
-
         // Add a little delay, just to make sure everything works fine
-        Invoke("Delay", 0.02f);
+        Invoke("Delay", 0.05f);
     }
 
     private void Delay()
