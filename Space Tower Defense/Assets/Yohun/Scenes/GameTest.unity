@@ -10534,10 +10534,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1014221672}
     - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
-      propertyPath: waves.Array.data[2].enemies.Array.data[7].spawnRate
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1772733278}
