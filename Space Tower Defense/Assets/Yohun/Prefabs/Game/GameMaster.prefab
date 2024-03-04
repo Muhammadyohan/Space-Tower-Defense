@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477104974175006591}
-  - component: {fileID: 8315813419187556845}
-  - component: {fileID: 6639863323520175727}
   - component: {fileID: 3249347573640931984}
   - component: {fileID: 664266492379363534}
   m_Layer: 0
@@ -35,32 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8315813419187556845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8851596674623169340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 475551c627a931d43be13409e1bcec31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NodeParent: {fileID: 0}
-  LoopShouldEnd: 0
---- !u!114 &6639863323520175727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8851596674623169340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4746ae0273d7f4a8f1dd82f294ded9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3249347573640931984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,22 +47,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: wave 1
-    enemyIDToSpawn: 2
-    amount: 5
-    spawnRate: 1
-    timeDuringWave: 20
+    enemies:
+    - name: GreenAliens
+      enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
+      amount: 5
+      spawnRate: 2
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - name: GreenAliens2
+      enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
+      amount: 10
+      spawnRate: 5
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    timeDuringWave: 120
   - name: wave 2
-    enemyIDToSpawn: 2
-    amount: 8
-    spawnRate: 1
-    timeDuringWave: 20
+    enemies:
+    - name: GreenAliens
+      enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
+      amount: 20
+      spawnRate: 1
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - name: GreenAliens2
+      enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
+      amount: 5
+      spawnRate: 0.5
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    timeDuringWave: 120
   - name: wave 3
-    enemyIDToSpawn: 2
-    amount: 10
-    spawnRate: 0.5
-    timeDuringWave: 20
+    enemies:
+    - name: GreenAlienHugeArmy
+      enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
+      amount: 50
+      spawnRate: 1
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    timeDuringWave: 120
   currentWave: 1
-  intermissionTime: 10
+  intermissionTime: 5
   timeBetweenWaves: 5
   waveCountdown: 0
   timeCountdown: 0
@@ -120,18 +132,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8315813419187556845}
-        m_TargetAssemblyTypeName: GameLoopManager, Assembly-CSharp
-        m_MethodName: SetLoopShouldEnd
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -195,18 +195,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8315813419187556845}
-        m_TargetAssemblyTypeName: GameLoopManager, Assembly-CSharp
-        m_MethodName: SetLoopShouldEnd
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

@@ -34,17 +34,17 @@ public class ObjectToDefense : MonoBehaviour
 
         }
 
+        if (healthBarFill.fillAmount != easeBarFill.fillAmount)
+        {
+            easeBarFill.fillAmount = Mathf.Lerp(easeBarFill.fillAmount, healthBuffer, lerpSpeed);
+        }
+
         if (preesSpaceBarToTest)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 TakeDamage(10);
             }
-        }
-
-        if (healthBarFill.fillAmount != easeBarFill.fillAmount)
-        {
-            easeBarFill.fillAmount = Mathf.Lerp(easeBarFill.fillAmount, healthBuffer, lerpSpeed);
         }
     }
 

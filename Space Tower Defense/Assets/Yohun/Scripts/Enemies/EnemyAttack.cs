@@ -9,6 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public float centerOffset;
     public Enemy enemy;
     private ObjectToDefense objectToDefense;
+    private PlayerHealthBar player;
     private Collider[] hitColliders;
     [HideInInspector] public bool targetAttacked = false;
     [HideInInspector] public bool hitting;
@@ -17,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
     void Awake()
     {
         objectToDefense = FindObjectOfType<ObjectToDefense>();
+        player = FindObjectOfType<PlayerHealthBar>();
     }
 
     void Update()
@@ -35,7 +37,7 @@ public class EnemyAttack : MonoBehaviour
                     }
                     if (hit.gameObject.tag == "Player")
                     {
-                        Debug.Log("Player Hitted!");
+                        player.TakeDamage(enemy.Damage);
                     }
                     targetAttacked = true;
                 }

@@ -1941,6 +1941,7 @@ GameObject:
   - component: {fileID: 5764425768360094694}
   - component: {fileID: 5764425768367080454}
   - component: {fileID: 5764425768340356934}
+  - component: {fileID: 7370532543036922014}
   - component: {fileID: -1047017070775129756}
   - component: {fileID: 5211258328062658536}
   - component: {fileID: -7454042060383236295}
@@ -2017,6 +2018,33 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5764425768371305154}
   m_Enabled: 1
+--- !u!54 &7370532543036922014
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764425768359802822}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!195 &-1047017070775129756
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2054,7 +2082,7 @@ MonoBehaviour:
   ID: 0
   MaxHealth: 100
   Health: 0
-  DamageResistance: 2
+  DamageResistance: 5
   Damage: 10
   animator: {fileID: 5764425768367080454}
   healthBar: {fileID: 5152916223774597607}

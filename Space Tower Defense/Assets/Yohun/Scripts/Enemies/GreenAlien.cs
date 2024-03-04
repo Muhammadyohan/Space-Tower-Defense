@@ -26,9 +26,9 @@ public class GreenAlien : MonoBehaviour
 
     void Awake()
     {
+        StartCoroutine(GetPlayerObj());
         thisEnemy = GetComponent<Enemy>();
         thisEnemy.Init();
-        player = GameObject.Find("PlayerObj").transform;
         targetPoint = GameObject.Find("Shield Core").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -46,6 +46,19 @@ public class GreenAlien : MonoBehaviour
             else if (playerInAttackRange && playerInSightRange) AttackPlayer();
             else if (targetInAttackRange) AttackTargetObject();
             else if (!playerInSightRange && !playerInAttackRange) GoToTargetObject();
+        }
+    }
+
+    private IEnumerator GetPlayerObj()
+    {
+        yield return new WaitForSeconds(0.1f);
+        try
+        {
+            player = GameObject.Find("PlayerObj").transform;
+        }
+        catch
+        {
+            StartCoroutine(GetPlayerObj());
         }
     }
 
