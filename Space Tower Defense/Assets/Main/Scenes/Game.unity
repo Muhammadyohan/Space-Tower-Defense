@@ -15351,6 +15351,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 558382770}
+    - target: {fileID: 902429519065643629, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 131
+      objectReference: {fileID: 0}
+    - target: {fileID: 902429519065643629, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 1041933953517024127, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
       propertyPath: player
       value: 
