@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class MamalienAttack : MonoBehaviour
 {
     public LayerMask whatIsTarget;
-    public float hitboxRange;
+    public Vector3 hitboxRange;
     public Enemy enemy;
     private ObjectToDefense objectToDefense;
     private PlayerHealthBar player;
@@ -23,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
     {   
         if (hitting)
         {  
-            hitColliders = Physics.OverlapSphere(transform.position, hitboxRange, whatIsTarget);
+            hitColliders = Physics.OverlapBox(transform.position, hitboxRange, Quaternion.identity,whatIsTarget);
             if (!targetAttacked)
             {
                 foreach (Collider hit in hitColliders)
@@ -45,6 +45,6 @@ public class EnemyAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, hitboxRange);
+        Gizmos.DrawWireCube(transform.position, hitboxRange);
     }
 }
