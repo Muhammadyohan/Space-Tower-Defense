@@ -986,7 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  MaxHealth: 150
+  MaxHealth: 100
   Health: 0
   DamageResistance: 1
   Damage: 5
