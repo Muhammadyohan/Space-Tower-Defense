@@ -89,7 +89,7 @@ MonoBehaviour:
     timeDuringWave: 120
   - name: wave 2
     enemies:
-    - name: Robot Rush!
+    - name: Robot
       enemy: {fileID: 4793442817268682437, guid: f4dcaa5a7c9468544b6c2fe9b2c27ad7, type: 3}
       amount: 5
       spawnRate: 1
@@ -97,17 +97,17 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-    - name: GreenAliens2
+    - name: GreenAliens
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 19
       spawnRate: 0.1
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
-    - name: LastGreenAlienAndWait
+    - name: LastGreenAlien
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 1
-      spawnRate: 20
+      spawnRate: 5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -115,18 +115,29 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-    - name: Ciccio Debuild
+    - name: Ciccio
       enemy: {fileID: 256240251528885567, guid: 57773fe913a2db04592263e1210d1f68, type: 3}
       amount: 1
       spawnRate: 30
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
-    - name: Ciccio Tank
+    - name: Ciccio
       enemy: {fileID: 256240251528885567, guid: 57773fe913a2db04592263e1210d1f68, type: 3}
       amount: 1
       spawnRate: 0.1
       spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - name: Reptile
+      enemy: {fileID: 5758045139860441447, guid: 9f88432045a746a499f95b4da5c5618a, type: 3}
+      amount: 5
+      spawnRate: 0.1
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
     - name: Robot Sam Sam
@@ -140,24 +151,13 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-    - name: Reptile Rush!
-      enemy: {fileID: 5758045139860441447, guid: 9f88432045a746a499f95b4da5c5618a, type: 3}
-      amount: 20
-      spawnRate: 5
-      spawnPoints:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
     timeDuringWave: 300
   - name: wave 3
     enemies:
-    - name: GreenAlienHugeArmy
+    - name: GreenAlien
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 15
-      spawnRate: 1
+      spawnRate: 0.5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -165,10 +165,10 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
-    - name: LastGreenAlienAndWait
+    - name: LastGreenAlien
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 1
-      spawnRate: 10
+      spawnRate: 1
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
     - name: LastRobotAndWait
       enemy: {fileID: 4793442817268682437, guid: f4dcaa5a7c9468544b6c2fe9b2c27ad7, type: 3}
       amount: 1
-      spawnRate: 20
+      spawnRate: 10
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
     - name: All star4
       enemy: {fileID: 256240251528885567, guid: 57773fe913a2db04592263e1210d1f68, type: 3}
       amount: 1
-      spawnRate: 20
+      spawnRate: 10
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
