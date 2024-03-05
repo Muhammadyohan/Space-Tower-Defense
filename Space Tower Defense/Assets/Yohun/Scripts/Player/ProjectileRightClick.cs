@@ -37,7 +37,7 @@ public class ProjectileRightClick : MonoBehaviour
     // Graphics
     [Header("Graphics")]
             // public GameObject muzzleFlash;
-            // private WeaponGUI weaponGUI;
+    private WeaponGUI weaponGUI;
 
     // Animation
     [Header("Animation")]
@@ -52,7 +52,7 @@ public class ProjectileRightClick : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
         reloading = false;
-                // weaponGUI = FindObjectOfType<WeaponGUI>();
+        weaponGUI = FindObjectOfType<WeaponGUI>();
     }
 
     private void Update()
@@ -60,8 +60,8 @@ public class ProjectileRightClick : MonoBehaviour
         MyInput();
 
         // Set text
-                // weaponGUI.bulletLeftText.SetText((bulletsLeft / bulletsPerTap).ToString());
-                // weaponGUI.magazineSizeText.SetText((magazineSize / bulletsPerTap).ToString());
+        weaponGUI.grenadeLeftText.SetText("x" + " " + (bulletsLeft / bulletsPerTap).ToString());
+                // weaponGUI.grenadeSizeText.SetText((magazineSize / bulletsPerTap).ToString());
     }
 
     private void MyInput()

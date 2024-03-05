@@ -853,14 +853,15 @@ MonoBehaviour:
   shieldBarFill: {fileID: 6978195763022257307}
   shieldEaseBarFill: {fileID: 3510577744697260380}
   healthText: {fileID: 230316880842137426}
+  shieldText: {fileID: 7706621796333095413}
   respawnTimeTextAnounce: {fileID: 414465310227901142}
-  respawnWaitTime: 5
+  respawnWaitTime: 5.99
   respawnWaitTimeCountDown: 0
   maxHealth: 100
   health: 0
   maxShield: 50
   shield: 0
-  preesFToTest: 1
+  preesFToTest: 0
 --- !u!1 &876868348901193620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,9 +1232,9 @@ RectTransform:
   - {fileID: 1808367715129452612}
   m_Father: {fileID: 3837436544050324508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 408, y: 409}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -552, y: -131}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736655557604048621
@@ -3454,10 +3455,10 @@ RectTransform:
   - {fileID: 6772796347780623934}
   m_Father: {fileID: 3837436544050324508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 739, y: -426}
-  m_SizeDelta: {x: 182.1993, y: 138.3597}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -221, y: 114}
+  m_SizeDelta: {x: 182.19934, y: 138.35968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6242506378354898224
 MonoBehaviour:
@@ -3473,6 +3474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLeftText: {fileID: 5541393549144464941}
   magazineSizeText: {fileID: 1653763179221568695}
+  grenadeLeftText: {fileID: 6242305344873754153}
 --- !u!1 &4630556120155804088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4716,9 +4718,9 @@ RectTransform:
   - {fileID: 8652873956453597720}
   m_Father: {fileID: 3837436544050324508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960, y: -540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6295543432500184488

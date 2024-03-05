@@ -7,34 +7,38 @@ using TMPro;
 
 public class PlayerHealthBar : MonoBehaviour
 {
+    [Header("Unity Event")]
     public UnityEvent WaitToRespawnEvent;
     public UnityEvent RespawnEvent;
+    [Header("Player Reference")]
     public PlayerMovement player;
     public PlayerCam playerCam;
-
+    [Header("Set Respawn Point of the Player")]
     public Transform respawnPoint;
-
+    [Header("GUI Reference")]
     public Image healthBarFill;
     public Image healthEaseBarFill;
     public Image shieldBarFill;
     public Image shieldEaseBarFill;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI shieldText;
+
+    [Header("Anoucement")]
     public TextMeshProUGUI respawnTimeTextAnounce;
 
+    [Header("Stats")]
     public float respawnWaitTime;
-    public float respawnWaitTimeCountDown;
+    [HideInInspector] public float respawnWaitTimeCountDown;
     public float maxHealth;
-    public float health;
+    [HideInInspector] public float health;
     public float maxShield;
-    public float shield;
+    [HideInInspector] public float shield;
     
+    [Header("Debug")]
     public bool preesFToTest;
-
     private bool isDead = false;
-
     private float healthBuffer;
     private float shieldBuffer;
-
     private float lerpSpeed = 0.05f;
 
     void Start()
@@ -48,6 +52,7 @@ public class PlayerHealthBar : MonoBehaviour
         health = maxHealth;
         shield = maxShield;
         healthText.text = health.ToString("F0");
+        shieldText.text = shield.ToString("F0");
         healthBuffer = health/maxHealth;
         shieldBuffer = shield/maxShield;
     }
@@ -68,7 +73,10 @@ public class PlayerHealthBar : MonoBehaviour
             healthEaseBarFill.fillAmount = Mathf.Lerp(healthEaseBarFill.fillAmount, healthBuffer, lerpSpeed);
 
         if (shieldBarFill.fillAmount != shieldBuffer)
+        {
             shieldBarFill.fillAmount = shieldBuffer;
+            shieldText.text = shield.ToString("F0");
+        }
             
         if (shieldBarFill.fillAmount != shieldEaseBarFill.fillAmount)
             shieldEaseBarFill.fillAmount = Mathf.Lerp(shieldEaseBarFill.fillAmount, shieldBuffer, lerpSpeed);
@@ -89,7 +97,10 @@ public class PlayerHealthBar : MonoBehaviour
             shield -= damage;
             shieldBuffer = shield/maxShield;
             if (shield <= 0) 
+            {
                 shield = 0;
+                shieldText.text = shield.ToString("F0");
+            }
         }
         else
         {

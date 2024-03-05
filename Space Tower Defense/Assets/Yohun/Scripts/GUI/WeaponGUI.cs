@@ -7,4 +7,6 @@ public class WeaponGUI : MonoBehaviour
 {
     public TextMeshProUGUI bulletLeftText;
     public TextMeshProUGUI magazineSizeText;
+    public TextMeshProUGUI grenadeLeftText;
+            // public TextMeshProUGUI grenadeSizeText;
 }
