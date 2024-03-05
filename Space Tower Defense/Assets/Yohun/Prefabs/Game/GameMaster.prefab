@@ -67,7 +67,7 @@ MonoBehaviour:
     - name: GreenAlien Rush!
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 10
-      spawnRate: 0.1
+      spawnRate: 0.5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -100,8 +100,12 @@ MonoBehaviour:
     - name: GreenAliens
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 19
-      spawnRate: 0.1
+      spawnRate: 0.5
       spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
     - name: LastGreenAlien
@@ -122,6 +126,10 @@ MonoBehaviour:
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
     - name: Ciccio
       enemy: {fileID: 256240251528885567, guid: 57773fe913a2db04592263e1210d1f68, type: 3}
       amount: 1
@@ -129,10 +137,14 @@ MonoBehaviour:
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
     - name: Reptile
       enemy: {fileID: 5758045139860441447, guid: 9f88432045a746a499f95b4da5c5618a, type: 3}
       amount: 5
-      spawnRate: 0.1
+      spawnRate: 1
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -143,7 +155,18 @@ MonoBehaviour:
     - name: Robot Sam Sam
       enemy: {fileID: 4793442817268682437, guid: f4dcaa5a7c9468544b6c2fe9b2c27ad7, type: 3}
       amount: 5
-      spawnRate: 0.1
+      spawnRate: 0.5
+      spawnPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - name: Mamalien
+      enemy: {fileID: 7889085051073212781, guid: 9b7050998f441034783e33fea6057b5e, type: 3}
+      amount: 1
+      spawnRate: 0.5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -190,7 +213,7 @@ MonoBehaviour:
     - name: LastRobotAndWait
       enemy: {fileID: 4793442817268682437, guid: f4dcaa5a7c9468544b6c2fe9b2c27ad7, type: 3}
       amount: 1
-      spawnRate: 10
+      spawnRate: 5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -201,7 +224,7 @@ MonoBehaviour:
     - name: All star1
       enemy: {fileID: 5764425768360094694, guid: 50a44e8953e392442b9315177ddab797, type: 3}
       amount: 10
-      spawnRate: 0.1
+      spawnRate: 0.5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -212,7 +235,7 @@ MonoBehaviour:
     - name: All star2
       enemy: {fileID: 4793442817268682437, guid: f4dcaa5a7c9468544b6c2fe9b2c27ad7, type: 3}
       amount: 5
-      spawnRate: 0.1
+      spawnRate: 0.5
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
@@ -223,7 +246,7 @@ MonoBehaviour:
     - name: All star3
       enemy: {fileID: 5758045139860441447, guid: 9f88432045a746a499f95b4da5c5618a, type: 3}
       amount: 3
-      spawnRate: 0.1
+      spawnRate: 0.25
       spawnPoints:
       - {fileID: 0}
       - {fileID: 0}
