@@ -32,7 +32,7 @@ public class CustomBullet : MonoBehaviour
     public AudioClip hitObjectSoundClip;
     public AudioClip hitEnemySoundClip;
     public AudioClip explosionSoundClip;
-    private int playOnce;
+    private int playOnce = 0;
     [Header("Debug")]
     public SphereCollider sphereCollider;
 
@@ -46,7 +46,10 @@ public class CustomBullet : MonoBehaviour
         // When to explode
         if (isExplode)
         {
-            if (collisions > maxCollisions) Explode();
+            if (collisions > maxCollisions) Explode() ;
+
+
+
 
             // Count down lifetime
             maxLifetime -= Time.deltaTime;
@@ -89,7 +92,7 @@ public class CustomBullet : MonoBehaviour
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
 
         // Play SFX
-        if (playOnce < 0)
+        if (playOnce < 1)
         {
             SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 0.1f);
             playOnce++;
