@@ -47,7 +47,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 1024
-  hitboxRange: 0.6
+  hitboxRange: 0.8
   enemy: {fileID: 4105741006641056878}
   targetAttacked: 0
   hitting: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   targetPoint: {fileID: 0}
   timeBetweenAttacks: 2
   enemyAttack: {fileID: 7039604499624183293}
-  attackRange: 1
+  attackRange: 1.2
   targetInAttackRange: 0
 --- !u!1 &4795428513568605711
 GameObject:

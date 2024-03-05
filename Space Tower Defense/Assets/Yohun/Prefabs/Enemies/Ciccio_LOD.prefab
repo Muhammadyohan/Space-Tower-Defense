@@ -1751,7 +1751,7 @@ MonoBehaviour:
   timeBetweenAttacks: 3
   enemyAttack: {fileID: 1756799228624404844}
   sightRange: 5
-  attackRange: 1.5
+  attackRange: 1.7
   playerInSightRange: 0
   playerInAttackRange: 0
   targetInAttackRange: 0
@@ -3138,7 +3138,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 1152
-  hitboxRange: 1.5
+  hitboxRange: 1.7
   enemy: {fileID: 3468507735809792313}
   targetAttacked: 0
   hitting: 0
