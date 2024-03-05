@@ -5474,10 +5474,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 937055180}
     - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3249347573640931984, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 792784337}
@@ -5988,10 +5984,6 @@ PrefabInstance:
     - target: {fileID: 8851596674623169340, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
       propertyPath: m_Name
       value: GameMaster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8851596674623169340, guid: 4a3bf6f5ba125604cab3bff9400e427b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14480,6 +14472,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 455794, guid: b2921be07fb71344985447616d3d64d7, type: 3}
   m_PrefabInstance: {fileID: 1405405537}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1405488527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6590021449164425688, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
+  m_PrefabInstance: {fileID: 937055179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4834b2c4a1cc3dd40983e63780042341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1407791312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15755,6 +15758,10 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 937055183}
+    - target: {fileID: 1041933953517024127, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1405488527}
     - target: {fileID: 1041933953517024127, guid: d1e190c14fa56fd43ae0aa4c3d060621, type: 3}
       propertyPath: respawnPoint
       value: 

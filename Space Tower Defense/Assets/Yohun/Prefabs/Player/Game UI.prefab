@@ -635,6 +635,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5632217836598305678}
   - {fileID: 1738893709897635673}
   - {fileID: 1823315771451738194}
   - {fileID: 5116460863995176333}
@@ -771,13 +772,18 @@ MonoBehaviour:
   healthText: {fileID: 230316880842137426}
   shieldText: {fileID: 7706621796333095413}
   respawnTimeTextAnounce: {fileID: 414465310227901142}
+  intensity: 0
+  volume: {fileID: 2379935293541447078}
+  cameraShake: {fileID: 0}
+  cameraShakeMagnitude: 0.25
+  cameraShakeDuration: 0.25
   respawnWaitTime: 5.99
   respawnWaitTimeCountDown: 0
   maxHealth: 100
   health: 0
   maxShield: 50
   shield: 0
-  preesFToTest: 0
+  preesFToTest: 1
 --- !u!1 &876868348901193620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,6 +5526,55 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8892457720132098493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5632217836598305678}
+  - component: {fileID: 2379935293541447078}
+  m_Layer: 3
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5632217836598305678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892457720132098493}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2988137113351456811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2379935293541447078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892457720132098493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: bd7903495c78c0444a01124e23a1d41b, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &9058086626460145398
 GameObject:
   m_ObjectHideFlags: 0

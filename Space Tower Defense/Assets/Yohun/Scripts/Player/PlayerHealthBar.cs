@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Rendering.PostProcessing;
 using TMPro;
 
 public class PlayerHealthBar : MonoBehaviour
@@ -26,6 +27,14 @@ public class PlayerHealthBar : MonoBehaviour
     [Header("Anoucement")]
     public TextMeshProUGUI respawnTimeTextAnounce;
 
+    [Header("Take Damage VFX")]
+    public float intensity = 0;
+    [SerializeField] PostProcessVolume volume;
+    public CameraShake cameraShake;
+    public float cameraShakeMagnitude;
+    public float cameraShakeDuration;
+    Vignette vignette;
+
     [Header("Stats")]
     public float respawnWaitTime;
     [HideInInspector] public float respawnWaitTimeCountDown;
@@ -44,6 +53,16 @@ public class PlayerHealthBar : MonoBehaviour
     void Start()
     {
         Init();
+        volume.profile.TryGetSettings<Vignette>(out vignette);
+
+        if (!vignette)
+        {
+            Debug.Log("error, vignette empty");
+        }
+        else
+        {
+            vignette.enabled.Override(false);
+        }
     }
 
     void Init()
@@ -92,6 +111,9 @@ public class PlayerHealthBar : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        StartCoroutine(TakeDamageFX());
+        StartCoroutine(cameraShake.Shake(cameraShakeDuration, cameraShakeMagnitude));
+
         if (shield > 0)
         {
             shield -= damage;
@@ -114,6 +136,31 @@ public class PlayerHealthBar : MonoBehaviour
                 isDead = true;
             }
         }
+    }
+
+    private IEnumerator TakeDamageFX()
+    {
+        if (intensity + 0.4f > 1) intensity = 1;
+        intensity += 0.4f;
+
+        vignette.enabled.Override(true);
+        vignette.intensity.Override(intensity);
+
+        yield return new WaitForSeconds(0.4f);
+
+        while (intensity > 0)
+        {
+            intensity -= 0.01f;
+
+            if (intensity < 0) intensity = 0;
+
+            vignette.intensity.Override(intensity);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        vignette.enabled.Override(false);
+        yield break;
     }
 
     public void WaitToRespawn()

@@ -59,6 +59,12 @@ public class ProjectileRightClick : MonoBehaviour
     {
         MyInput();
 
+        if (bulletsLeft < magazineSize)
+        {
+            if (!reloading)  
+                Reload();
+        }
+
         // Set text
         weaponGUI.grenadeLeftText.SetText("x" + " " + (bulletsLeft / bulletsPerTap).ToString());
                 // weaponGUI.grenadeSizeText.SetText((magazineSize / bulletsPerTap).ToString());
@@ -71,21 +77,23 @@ public class ProjectileRightClick : MonoBehaviour
         else shooting = Input.GetKeyDown(KeyCode.Mouse1);
         
         // Reloading
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+                // if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
         // Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0){
+        if (readyToShoot && shooting && bulletsLeft > 0){
             // Set bullets shot to 0
             bulletsShot = 0;
 
             Shoot();
             animator.SetBool("Shooting", true);
         }
-        else if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
-        {
-            // Auto reload when out of ammo
-            Reload();
-        }
+                // else if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+                // {
+                    // Auto reload when out of ammo
+                //     Reload();
+                // }
+
+        // Finished Shooting
         else if (!shooting)
             animator.SetBool("Shooting", false);
     }
@@ -166,7 +174,7 @@ public class ProjectileRightClick : MonoBehaviour
 
     private void ReloadFinished()
     {
-        bulletsLeft = magazineSize;
+        bulletsLeft ++;
 
         reloading = false;
     }
