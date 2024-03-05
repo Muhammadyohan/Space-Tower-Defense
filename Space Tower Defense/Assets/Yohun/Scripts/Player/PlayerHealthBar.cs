@@ -140,8 +140,8 @@ public class PlayerHealthBar : MonoBehaviour
 
     private IEnumerator TakeDamageFX()
     {
-        if (intensity + 0.4f > 1) intensity = 1;
-        intensity += 0.4f;
+        if (intensity + 0.4f > 0.5f) intensity = 0.5f;
+        intensity += 0.2f;
 
         vignette.enabled.Override(true);
         vignette.intensity.Override(intensity);

@@ -151,9 +151,9 @@ MonoBehaviour:
   timeBetweenShooting: 0.5
   spread: 0
   range: 100
-  reloadTime: 10
+  reloadTime: 7.5
   timeBetweenShots: 0.1
-  magazineSize: 2
+  magazineSize: 3
   bulletsPerTap: 1
   allowButtonHold: 1
   playerRb: {fileID: 1050627723357366452}

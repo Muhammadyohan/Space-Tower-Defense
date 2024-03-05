@@ -7,6 +7,8 @@ public class EnemyAttack : MonoBehaviour
     public LayerMask whatIsTarget;
     public float hitboxRange;
     public Enemy enemy;
+    public AudioClip playerHittedSoundClip;
+    public AudioClip defendedObjectHittedSoundClip;
     private ObjectToDefense objectToDefense;
     private PlayerHealthBar player;
     private Collider[] hitColliders;
@@ -31,10 +33,12 @@ public class EnemyAttack : MonoBehaviour
                     if (hit.gameObject.tag == "DefendedObject")
                     {
                         objectToDefense.TakeDamage(enemy.Damage);
+                        SoundFXManager.instance.PlayerSoundFXClip(defendedObjectHittedSoundClip, hit.transform, 0.1f);
                     }
                     if (hit.gameObject.tag == "Player")
                     {
                         player.TakeDamage(enemy.Damage);
+                        SoundFXManager.instance.PlayerSoundFXClip(playerHittedSoundClip, hit.transform, 0.1f);
                     }
                     targetAttacked = true;
                 }

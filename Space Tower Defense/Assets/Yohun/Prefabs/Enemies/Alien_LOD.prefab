@@ -301,6 +301,8 @@ MonoBehaviour:
     m_Bits: 1152
   hitboxRange: 1
   enemy: {fileID: 5211258328062658536}
+  playerHittedSoundClip: {fileID: 8300000, guid: da37d5885786638408656cde7c045370, type: 3}
+  defendedObjectHittedSoundClip: {fileID: 8300000, guid: b5e79df1d4f1e7e44a48c4d8422b7ae2, type: 3}
   targetAttacked: 0
   hitting: 0
 --- !u!1 &5089497185076100426
