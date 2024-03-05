@@ -23,7 +23,7 @@ public class MamalienAttack : MonoBehaviour
     {   
         if (hitting)
         {  
-            hitColliders = Physics.OverlapBox(transform.position, hitboxRange, Quaternion.LookRotation(Vector3.forward), whatIsTarget);
+            hitColliders = Physics.OverlapBox(transform.position, hitboxRange, transform.rotation, whatIsTarget);
             if (!targetAttacked)
             {
                 foreach (Collider hit in hitColliders)

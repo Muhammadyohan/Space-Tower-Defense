@@ -32,6 +32,7 @@ public class CustomBullet : MonoBehaviour
     public AudioClip hitObjectSoundClip;
     public AudioClip hitEnemySoundClip;
     public AudioClip explosionSoundClip;
+    private int playOnce;
     [Header("Debug")]
     public SphereCollider sphereCollider;
 
@@ -88,7 +89,11 @@ public class CustomBullet : MonoBehaviour
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
 
         // Play SFX
-        SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 0.1f);
+        if (playOnce < 0)
+        {
+            SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 0.1f);
+            playOnce++;
+        }
 
         // Check for enemies
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);

@@ -9241,6 +9241,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1360457448703401402, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
+      propertyPath: reloadTime
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360457448703401402, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
+      propertyPath: magazineSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2705026216759425294, guid: be9982195f38c4440bcae9392a153e8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 99.34

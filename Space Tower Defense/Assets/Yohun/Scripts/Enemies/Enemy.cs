@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.Timeline;
 
 public class Enemy : MonoBehaviour
 {
     public int ID;
+    private NavMeshAgent agent;
     [Header("Stats")]
     public float MaxHealth;
     public float Health;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     public void Init()
     {
+        agent = GetComponent<NavMeshAgent>();
         Health = MaxHealth;
         healthBar.maxHealth = MaxHealth;
         healthBar.health = MaxHealth;
@@ -37,9 +40,10 @@ public class Enemy : MonoBehaviour
         healthBar.TakeDamage(totalDamage);
         if (Health <= 0f)
         {
-            DeadEvent.Invoke();
             if (playOnce < 1)
             {
+                agent.SetDestination(transform.position);
+                DeadEvent.Invoke();
                 animator.SetTrigger("Dead");
                 SoundFXManager.instance.PlayerSoundFXClip(deadSoundFX, transform, 0.1f);
                 playOnce++;

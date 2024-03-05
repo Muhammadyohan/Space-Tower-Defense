@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 4017043328277220600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.17}
+  m_LocalPosition: {x: 0, y: 0, z: 10.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -489,7 +489,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 1152
-  hitboxRange: {x: 3, y: 3, z: 12}
+  hitboxRange: {x: 3, y: 3, z: 10}
   enemy: {fileID: 896011476476565894}
   targetAttacked: 0
   hitting: 0
@@ -1938,7 +1938,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   targetPoint: {fileID: 0}
-  timeBetweenAttacks: 3.5
+  timeBetweenAttacks: 4
   enemyAttack: {fileID: 1341516216894228648}
   StartFlameThrowEvent:
     m_PersistentCalls:
@@ -1970,8 +1970,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  sightRange: 12
-  attackRange: 10
+  sightRange: 10
+  attackRange: 8
   playerInSightRange: 0
   playerInAttackRange: 0
   targetInAttackRange: 0
