@@ -1897,7 +1897,7 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 0
   DamageResistance: 30
-  Damage: 20
+  Damage: 15
   animator: {fileID: 7889085051080990419}
   DeadEvent:
     m_PersistentCalls:
