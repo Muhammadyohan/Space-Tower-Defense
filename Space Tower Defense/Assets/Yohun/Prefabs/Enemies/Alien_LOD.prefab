@@ -2150,7 +2150,7 @@ MonoBehaviour:
   timeBetweenAttacks: 5
   enemyAttack: {fileID: 2207832059271487497}
   sightRange: 8
-  attackRange: 5
+  attackRange: 2.5
   playerInSightRange: 0
   playerInAttackRange: 0
   targetInAttackRange: 0
