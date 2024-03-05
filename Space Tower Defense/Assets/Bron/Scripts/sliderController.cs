@@ -17,6 +17,8 @@ public class sliderController : MonoBehaviour
 
     public void OnSliderChangedSenes(float value)
     {
+        PlayerCam.sensX = value;
+        PlayerCam.sensY = value;
         valueText.text = value.ToString("0.00");
     }
 }

@@ -66,7 +66,7 @@ public class GreenAlien : MonoBehaviour
     {
         if (!targetInAttackRange)
         {
-            agent.SetDestination(targetPoint.position);
+            if (agent.enabled) agent.SetDestination(targetPoint.position);
             if(!thisEnemy.animator.GetBool("Move"))
             {
                 thisEnemy.animator.SetBool("Move", true);
@@ -76,7 +76,7 @@ public class GreenAlien : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        if (agent.enabled) agent.SetDestination(player.position);
         if(!thisEnemy.animator.GetBool("Move"))
         {
             thisEnemy.animator.SetBool("Move", true);
@@ -86,7 +86,7 @@ public class GreenAlien : MonoBehaviour
     private void AttackPlayer()
     {
         // Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
+        if (agent.enabled) agent.SetDestination(transform.position);
         if(thisEnemy.animator.GetBool("Move"))
             thisEnemy.animator.SetBool("Move", false);
 
@@ -109,7 +109,7 @@ public class GreenAlien : MonoBehaviour
     private void AttackTargetObject()
     {
         // Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
+        if (agent.enabled) agent.SetDestination(transform.position);
         if(thisEnemy.animator.GetBool("Move"))
             thisEnemy.animator.SetBool("Move", false);
 

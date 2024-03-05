@@ -6,28 +6,23 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public float groundDrag;
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-
-    // public GameObject stepRayUpper;
-    // public GameObject stepRayLower;
-    // public float stepHeight = 0.3f;
-    // public float stepSmooth = 0.1f;
-
     bool readyToJump = true;
-
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
-
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    [Header("SoundFX")]
+    public AudioClip leftFootStepSpundClip;
+    public AudioClip rightFootStepSpundClip;
+    public Transform footTransform;
 
+    bool grounded;
+    bool stepped;
 
     [Header("References")]
     public Transform orientation;
@@ -43,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
-        //stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepRayUpper.transform.position.y + stepHeight, stepRayUpper.transform.position.z);
     }
 
     private void Update()
@@ -87,6 +80,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        if ((moveDirection.x > 0 || moveDirection.z > 0) && grounded && !stepped)
+        {
+            stepped = true;
+            StartCoroutine(PlayerStepSoundFX());
+        }
 
         // on ground
         if (grounded)
@@ -131,5 +130,14 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
         transform.position = position;
+    }
+
+    IEnumerator PlayerStepSoundFX()
+    {
+        yield return new WaitForSeconds(0.25f);
+        SoundFXManager.instance.PlayerSoundFXClip(leftFootStepSpundClip, footTransform, 0.1f);
+        yield return new WaitForSeconds(0.25f);
+        SoundFXManager.instance.PlayerSoundFXClip(rightFootStepSpundClip, footTransform, 0.1f);
+        stepped = false;
     }
 }

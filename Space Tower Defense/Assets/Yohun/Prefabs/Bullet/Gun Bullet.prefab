@@ -276,4 +276,7 @@ MonoBehaviour:
   explodeOnTouch: 1
   bulletImpactGraphic: {fileID: 1781905683002307672, guid: 1e946861ecdd5d749a668b17d5077f78, type: 3}
   bloodImpactGarphic: {fileID: 1000012909287652, guid: 9e0007124465fb146971d127b501a0d4, type: 3}
+  hitObjectSoundClip: {fileID: 8300000, guid: 6fe7156b84b774d44917a9a52f6ed2a4, type: 3}
+  hitEnemySoundClip: {fileID: 8300000, guid: 4b2c7813ac0ab2a4a96ca1b28b7d59e5, type: 3}
+  explosionSoundClip: {fileID: 8300000, guid: 01e23eb10323d9349a2212ac5f5d74f1, type: 3}
   sphereCollider: {fileID: 6275350564967302195}

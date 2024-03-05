@@ -57,7 +57,7 @@ public class ReptileAlien : MonoBehaviour
     private void ChasePlayer()
     {
         if (player != null)
-            agent.SetDestination(player.position);
+            if (agent.enabled) agent.SetDestination(player.position);
             
         if(!thisEnemy.animator.GetBool("Move"))
         {
@@ -68,7 +68,7 @@ public class ReptileAlien : MonoBehaviour
     private void AttackPlayer()
     {
         // Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
+        if (agent.enabled) agent.SetDestination(transform.position);
         if(thisEnemy.animator.GetBool("Move"))
             thisEnemy.animator.SetBool("Move", false);
 

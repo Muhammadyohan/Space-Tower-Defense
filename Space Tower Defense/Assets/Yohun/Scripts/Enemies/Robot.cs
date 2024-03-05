@@ -47,7 +47,7 @@ public class Robot : MonoBehaviour
     {
         if (!targetInAttackRange)
         {
-            agent.SetDestination(targetPoint.position);
+            if (agent.enabled) agent.SetDestination(targetPoint.position);
             if(!thisEnemy.animator.GetBool("Move"))
             {
                 thisEnemy.animator.SetBool("Move", true);
@@ -58,7 +58,7 @@ public class Robot : MonoBehaviour
     private void AttackTargetObject()
     {
         // Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
+        if (agent.enabled) agent.SetDestination(transform.position);
         if(thisEnemy.animator.GetBool("Move"))
             thisEnemy.animator.SetBool("Move", false);
 

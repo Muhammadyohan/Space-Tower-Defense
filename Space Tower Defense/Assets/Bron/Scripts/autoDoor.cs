@@ -8,6 +8,9 @@ public class autoDoor : MonoBehaviour
     public Animator doorAnim;
     public Vector3 checkRadius;
 
+    [SerializeField] private AudioClip doorOpenSoundClip;
+    [SerializeField] private AudioClip doorCloseSoundClip;
+
     private Collider[] hitColliders;
 
     void Update()
@@ -15,27 +18,23 @@ public class autoDoor : MonoBehaviour
         hitColliders = Physics.OverlapBox(transform.position, checkRadius, Quaternion.identity, whatIsPlayerOrEnemy);
         if (hitColliders.Length > 0)
         {
-            doorAnim.SetBool("character_nearby", true);
+            if (!doorAnim.GetBool("character_nearby"))
+                doorAnim.SetBool("character_nearby", true);
         }
         else
         {
-            doorAnim.SetBool("character_nearby", false);
+            if (doorAnim.GetBool("character_nearby"))
+                doorAnim.SetBool("character_nearby", false);
         }
     }
-    // void OnTriggerEnter(Collider other) 
-    // {
-    //     if(other.CompareTag("Player") | other.CompareTag("Enemy"))
-    //     {
-    //         doorAnim.SetBool("character_nearby", true);
-    //     }
-    // }
+    
+    public void PlayerDoorOpenSound()
+    {
+        SoundFXManager.instance.PlayerSoundFXClip(doorOpenSoundClip, transform, 0.025f);
+    }
 
-    // void OnTriggerExit(Collider other) 
-    // {
-    //     if(other.CompareTag("Player") | other.CompareTag("Enemy"))
-    //     {
-    //         doorAnim.SetBool("character_nearby", false);
-
-    //     }
-    // }
+    public void PlayerDoorCloseSound()
+    {
+        SoundFXManager.instance.PlayerSoundFXClip(doorCloseSoundClip, transform, 0.025f);
+    }
 }

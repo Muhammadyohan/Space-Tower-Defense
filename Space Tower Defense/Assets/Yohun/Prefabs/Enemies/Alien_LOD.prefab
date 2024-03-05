@@ -2116,6 +2116,10 @@ MonoBehaviour:
   DamageResistance: 1.5
   Damage: 10
   animator: {fileID: 5764425768367080454}
+  DeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deadSoundFX: {fileID: 8300000, guid: 3037494b3514edc4c8e9a70d14f74591, type: 3}
   healthBar: {fileID: 5152916223774597607}
 --- !u!114 &-7454042060383236295
 MonoBehaviour:

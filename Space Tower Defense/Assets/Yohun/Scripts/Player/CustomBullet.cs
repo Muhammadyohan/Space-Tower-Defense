@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class CustomBullet : MonoBehaviour
 {
-    // Assignables
     [Header("Reference")]
     public Rigidbody rb;
     public GameObject explosion;
     public LayerMask whatIsEnemies;
-
-    // Stats
     [Header("Bullet Stats")]
     [Range(0f, 1f)]
     public float bounciness;
     public bool useGravity;
     public bool isSticky;
     public bool isExplode;
-
-    // Damage
     [Header("Damage")]
     public int damage;
     public float explosionRange;
-
-    // Lifetime
     [Header("Lifetime")]
     public int maxCollisions;
     public float maxLifetime;
     public bool explodeOnTouch = true;
-
-    // Graphics
     [Header("Graphics")]
     public GameObject bulletImpactGraphic;
     public GameObject bloodImpactGarphic;
@@ -37,7 +28,10 @@ public class CustomBullet : MonoBehaviour
     int hitCount;
     int collisions;
     PhysicMaterial physics_mat;
-
+    [Header("SoundFX")]
+    public AudioClip hitObjectSoundClip;
+    public AudioClip hitEnemySoundClip;
+    public AudioClip explosionSoundClip;
     [Header("Debug")]
     public SphereCollider sphereCollider;
 
@@ -70,9 +64,19 @@ public class CustomBullet : MonoBehaviour
                 {
                     hitCount++;
                     if (hit.collider.CompareTag("Enemy"))
+                    {
                         Instantiate(bloodImpactGarphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
+
+                        // Play SFX
+                        SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, hit.transform, 0.1f);
+                    }
                     else if(!hit.collider.CompareTag("Invisible"))
+                    {
                         Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal), hit.transform);
+
+                        // Play SFX
+                        SoundFXManager.instance.PlayerSoundFXClip(hitObjectSoundClip, hit.transform, 0.025f);
+                    }
                 }
             }
         }
@@ -83,12 +87,18 @@ public class CustomBullet : MonoBehaviour
         // Instantiate explosion
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
 
+        // Play SFX
+        SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 0.1f);
+
         // Check for enemies
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0; i < enemies.Length; i++)
         {
             // Get component of enemy and call Take Damage
             enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
+
+            // Play SFX
+            SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, enemies[i].transform, 0.1f);
         }
         // Add a little delay, just to make sure everything works fine
         Invoke("Delay", 0.05f);

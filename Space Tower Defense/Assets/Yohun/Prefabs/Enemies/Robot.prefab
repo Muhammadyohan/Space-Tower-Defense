@@ -47,7 +47,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 1024
-  hitboxRange: 0.8
+  hitboxRange: 0.6
   enemy: {fileID: 4105741006641056878}
   targetAttacked: 0
   hitting: 0
@@ -991,6 +991,10 @@ MonoBehaviour:
   DamageResistance: 1
   Damage: 5
   animator: {fileID: 4888921176515352639}
+  DeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deadSoundFX: {fileID: 8300000, guid: 3ec308bcc3de26d4dbc0cbddc2a28182, type: 3}
   healthBar: {fileID: 6775713474073608802}
 --- !u!114 &2269432209611022404
 MonoBehaviour:
@@ -1014,7 +1018,7 @@ MonoBehaviour:
   targetPoint: {fileID: 0}
   timeBetweenAttacks: 2
   enemyAttack: {fileID: 7039604499624183293}
-  attackRange: 1.2
+  attackRange: 0.6
   targetInAttackRange: 0
 --- !u!1 &4795428513568605711
 GameObject:

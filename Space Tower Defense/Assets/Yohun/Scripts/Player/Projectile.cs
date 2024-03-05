@@ -5,22 +5,18 @@ using TMPro;
 
 public class Projectile : MonoBehaviour
 {
-    // bullet
     [Header("Bullet")]
     public GameObject bullet;
 
     // bullet force
     public float shootForce, upwardForce;
 
-    // Gun stats
     [Header("Gun Stats")]
     public float damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-
-    // Recoil
     [Header("Recoil")]
     public Rigidbody playerRb;
     public float recoilForce;
@@ -30,22 +26,18 @@ public class Projectile : MonoBehaviour
     // bools
     bool shooting, readyToShoot, reloading;
 
-    // Reference
     [Header("Reference")]
     public Camera fpsCam;
     public Transform attackPoint;
-
-    // Graphics
     [Header("Graphics")]
     public GameObject muzzleFlash;
     private WeaponGUI weaponGUI;
-
-    // Animation
     [Header("Animation")]
     public Animator animator;
-
+    [Header("SoundFX")]
+    public AudioClip shootSoundClip;
+    public AudioClip reloadSoundClip;
     [Header("Debug")]
-    // bug fixing
     public bool allowInvoke = true;
 
     private void Awake()
@@ -137,6 +129,9 @@ public class Projectile : MonoBehaviour
         bulletsLeft--;
         bulletsShot++;
 
+        // Play shoot SFX
+        SoundFXManager.instance.PlayerSoundFXClip(shootSoundClip, attackPoint, 0.1f);
+
         // Invoke resetShot function (is not already invoked)
         if (allowInvoke)
         {
@@ -170,6 +165,8 @@ public class Projectile : MonoBehaviour
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
+
+        SoundFXManager.instance.PlayerSoundFXClip(reloadSoundClip, transform, 0.1f);
 
         animator.SetBool("Reloading", false);
 

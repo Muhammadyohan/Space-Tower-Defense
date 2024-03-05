@@ -151,7 +151,7 @@ MonoBehaviour:
   timeBetweenShooting: 0.5
   spread: 0
   range: 100
-  reloadTime: 6
+  reloadTime: 10
   timeBetweenShots: 0.1
   magazineSize: 2
   bulletsPerTap: 1
@@ -165,6 +165,37 @@ MonoBehaviour:
   attackPoint: {fileID: 7619528571347877277}
   animator: {fileID: 1029898611933455296}
   allowInvoke: 1
+--- !u!1 &8250953697994647849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8560111914140776893}
+  m_Layer: 7
+  m_Name: FootPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8560111914140776893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250953697994647849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.815, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6058260920345995928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &121782216222980662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,6 +208,18 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1333124371536770707, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: footTransform
+      value: 
+      objectReference: {fileID: 8560111914140776893}
+    - target: {fileID: 1333124371536770707, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: leftFootStepSpundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1bdb26c00c0405846b295d9e44421949, type: 3}
+    - target: {fileID: 1333124371536770707, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      propertyPath: rightFootStepSpundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 589492d0f3d42ef428c3fc9aed680795, type: 3}
     - target: {fileID: 3929184852272559208, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       propertyPath: m_Radius
       value: 0.48
@@ -263,7 +306,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6171035890009542830, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8560111914140776893}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5816242351565535116, guid: a5a72be894125a04490e5ef3381225f9, type: 3}
       insertIndex: -1
@@ -333,6 +379,14 @@ PrefabInstance:
       propertyPath: playerRb
       value: 
       objectReference: {fileID: 1050627723357366452}
+    - target: {fileID: 1617934761485885123, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+      propertyPath: shootSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d732717e725e888408e1c3ac77f433af, type: 3}
+    - target: {fileID: 1617934761485885123, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
+      propertyPath: reloadSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c1b8bedb9ea863c42a49d39fecf66659, type: 3}
     - target: {fileID: 2242329304933730540, guid: 25c0d5800fec18241841bb4380c39e1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56715584
