@@ -130,7 +130,7 @@ public class Projectile : MonoBehaviour
         bulletsShot++;
 
         // Play shoot SFX
-        SoundFXManager.instance.PlayerSoundFXClip(shootSoundClip, attackPoint, 0.1f);
+        SoundFXManager.instance.PlayerSoundFXClip(shootSoundClip, attackPoint, 1f);
 
         // Invoke resetShot function (is not already invoked)
         if (allowInvoke)
@@ -166,7 +166,7 @@ public class Projectile : MonoBehaviour
     {
         bulletsLeft = magazineSize;
 
-        SoundFXManager.instance.PlayerSoundFXClip(reloadSoundClip, transform, 0.1f);
+        SoundFXManager.instance.PlayerSoundFXClip(reloadSoundClip, transform, 1f);
 
         animator.SetBool("Reloading", false);
 

@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
                 agent.SetDestination(transform.position);
                 DeadEvent.Invoke();
                 animator.SetTrigger("Dead");
-                SoundFXManager.instance.PlayerSoundFXClip(deadSoundFX, transform, 0.1f);
+                SoundFXManager.instance.PlayerSoundFXClip(deadSoundFX, transform, 1f);
                 playOnce++;
             }
         } 

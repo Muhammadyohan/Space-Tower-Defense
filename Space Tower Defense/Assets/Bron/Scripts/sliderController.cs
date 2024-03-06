@@ -11,7 +11,7 @@ public class sliderController : MonoBehaviour
 
     public void OnSliderChangedVolume(float value)
     {
-        newVolume = value+80;
+        newVolume = value*100;
         valueText.text = newVolume.ToString("0") + '%';
     }
 

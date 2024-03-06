@@ -72,14 +72,14 @@ public class CustomBullet : MonoBehaviour
                         Instantiate(bloodImpactGarphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal));
 
                         // Play SFX
-                        SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, hit.transform, 0.1f);
+                        SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, hit.transform, 1f);
                     }
                     else if(!hit.collider.CompareTag("Invisible"))
                     {
                         Instantiate(bulletImpactGraphic, hit.point, Quaternion.FromToRotation(Vector3.forward , hit.normal), hit.transform);
 
                         // Play SFX
-                        SoundFXManager.instance.PlayerSoundFXClip(hitObjectSoundClip, hit.transform, 0.025f);
+                        SoundFXManager.instance.PlayerSoundFXClip(hitObjectSoundClip, hit.transform, 0.25f);
                     }
                 }
             }
@@ -94,7 +94,7 @@ public class CustomBullet : MonoBehaviour
         // Play SFX
         if (playOnce < 1)
         {
-            SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 0.1f);
+            SoundFXManager.instance.PlayerSoundFXClip(explosionSoundClip, transform, 1f);
             playOnce++;
         }
 
@@ -106,7 +106,7 @@ public class CustomBullet : MonoBehaviour
             enemies[i].GetComponentInParent<Enemy>().TakeDamageFromPlayer(damage);
 
             // Play SFX
-            SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, enemies[i].transform, 0.1f);
+            SoundFXManager.instance.PlayerSoundFXClip(hitEnemySoundClip, enemies[i].transform, 1f);
         }
         // Add a little delay, just to make sure everything works fine
         Invoke("Delay", 0.05f);

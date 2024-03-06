@@ -33,12 +33,12 @@ public class MamalienAttack : MonoBehaviour
                     if (hit.gameObject.tag == "DefendedObject")
                     {
                         objectToDefense.TakeDamage(enemy.Damage);
-                        SoundFXManager.instance.PlayerSoundFXClip(defendedObjectHittedSoundClip, hit.transform, 0.1f);
+                        SoundFXManager.instance.PlayerSoundFXClip(defendedObjectHittedSoundClip, hit.transform, 1f);
                     }
                     if (hit.gameObject.tag == "Player")
                     {
                         player.TakeDamage(enemy.Damage);
-                        SoundFXManager.instance.PlayerSoundFXClip(playerHittedSoundClip, hit.transform, 0.1f);
+                        SoundFXManager.instance.PlayerSoundFXClip(playerHittedSoundClip, hit.transform, 1f);
                     }
                     targetAttacked = true;
                 }

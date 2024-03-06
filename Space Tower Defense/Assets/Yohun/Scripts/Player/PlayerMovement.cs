@@ -135,9 +135,9 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PlayerStepSoundFX()
     {
         yield return new WaitForSeconds(0.25f);
-        SoundFXManager.instance.PlayerSoundFXClip(leftFootStepSpundClip, footTransform, 0.1f);
+        SoundFXManager.instance.PlayerSoundFXClip(leftFootStepSpundClip, footTransform, 1f);
         yield return new WaitForSeconds(0.25f);
-        SoundFXManager.instance.PlayerSoundFXClip(rightFootStepSpundClip, footTransform, 0.1f);
+        SoundFXManager.instance.PlayerSoundFXClip(rightFootStepSpundClip, footTransform, 1f);
         stepped = false;
     }
 }

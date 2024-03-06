@@ -30,11 +30,11 @@ public class autoDoor : MonoBehaviour
     
     public void PlayerDoorOpenSound()
     {
-        SoundFXManager.instance.PlayerSoundFXClip(doorOpenSoundClip, transform, 0.025f);
+        SoundFXManager.instance.PlayerSoundFXClip(doorOpenSoundClip, transform, 0.25f);
     }
 
     public void PlayerDoorCloseSound()
     {
-        SoundFXManager.instance.PlayerSoundFXClip(doorCloseSoundClip, transform, 0.025f);
+        SoundFXManager.instance.PlayerSoundFXClip(doorCloseSoundClip, transform, 0.25f);
     }
 }
